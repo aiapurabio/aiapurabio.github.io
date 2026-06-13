@@ -6,10 +6,11 @@
 <title>Aia Pura Bio - Filiera Avicola Biologica</title>
 <meta name="description" content="Aia Pura Bio racconta una filiera avicola biologica pugliese: uova, pollo e gallina, territorio, prodotto, catalogo e contatto diretto.">
 
-<link rel="canonical" href="https://aiapurabio.myshopify.com/">
+<link rel="canonical" href="https://aiapurabio.github.io/">
 <meta property="og:title" content="Aia Pura Bio - Filiera Avicola Biologica">
 <meta property="og:description" content="Aia Pura Bio racconta prodotti avicoli biologici, territorio pugliese, filiera e catalogo online consultabile.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://aiapurabio.github.io/">
 <meta property="og:locale" content="it_IT">
 
 <style>
@@ -168,7 +169,7 @@ h2.t{margin:0 0 16px;font-size:40px;line-height:1.15;color:var(--g);font-family:
 /* Responsive */
 @media(max-width:1024px){.g2,.g3,.g4,.fg2,.fr{grid-template-columns:1fr;}h2.t{font-size:32px;}.pf{width:200px;height:360px;}}
 @media(max-width:768px){.s{padding:56px 0;}.c{padding:0 18px;}.hi{flex-wrap:wrap;min-height:auto;}.nv{order:3;width:100%;gap:8px;overflow-x:auto;padding:6px 0;}h2.t{font-size:26px;}.hc{gap:6px;}.pf{width:170px;height:310px;border-width:5px;border-radius:24px;}#cb{width:52px;height:52px;right:14px;bottom:14px;}#cp{right:10px;left:10px;bottom:76px;width:auto;height:75vh;border-radius:14px;}.gi{width:250px;height:250px;}}
-@media(max-width:480px){.s{padding:40px 0;}.c{padding:0 14px;}h2.t{font-size:22px;}.nv{display:none;}.pf{width:150px;height:270px;}.gi{width:200px;height:200px;}}
+@media(max-width:480px){.s{padding:40px 0;}.c{padding:0 14px;}h2.t{font-size:22px;}.nv{display:flex;order:3;width:100%;justify-content:flex-start;gap:10px;overflow-x:auto;padding:6px 0;scrollbar-width:none;}.nv::-webkit-scrollbar{display:none;}.pf{width:150px;height:270px;}.gi{width:200px;height:200px;}}
 </style>
 </head>
 <body>
@@ -181,19 +182,14 @@ h2.t{margin:0 0 16px;font-size:40px;line-height:1.15;color:var(--g);font-family:
 <a href="#home" class="lo"><img src="assets/images/logo-aia-pura-bio.png" alt="Aia Pura Bio" style="height:48px;"></a>
 <nav class="nv" id="mn">
 <a href="#home">Home</a>
+<a href="#filiera">Filiera</a>
 <a href="#catalogo-p">Catalogo</a>
 <a href="#blog-p">Blog</a>
-<a href="#ricette-p">Ricette</a>
-<a href="#sost-p">Sostenibilit&agrave;</a>
-<a href="#veg-p">Veg</a>
-<a href="#promo-p">Promo</a>
-<a href="#gallery-p">Gallery</a>
 <a href="#faq-p">FAQ</a>
 <a href="#contatti">Contatti</a>
 </nav>
 <div class="hc" style="display:flex;gap:12px;align-items:center;">
-<a href="https://aiapurabio.systeme.io/aiapurabiolinkbio" target="_blank" rel="noopener noreferrer" class="b bo" style="font-size:11px;padding:8px 16px;">Link Bio</a>
-<a href="https://aiapurabio.myshopify.com/" class="b bp" target="_blank" rel="noopener" style="font-size:11px;padding:8px 16px;">Store</a>
+<a href="#contatti" class="b bp" style="font-size:11px;padding:8px 16px;">Contattaci</a>
 <button class="b bs oc" type="button" style="font-size:11px;padding:8px 16px;">Bianca</button>
 </div>
 
@@ -213,19 +209,20 @@ h2.t{margin:0 0 16px;font-size:40px;line-height:1.15;color:var(--g);font-family:
 .bx-img-sm{width:100%;height:160px;object-fit:contain;object-position:center center;background:#FAF6EF;border-radius:12px;margin-bottom:14px;}
 .hero-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:60px 0;}
 @media(max-width:900px){.hero-wrap{grid-template-columns:1fr;text-align:center;} .hv{margin-top:24px;}}
+@media(max-width:480px){.hero-wrap{padding:36px 0 44px;}.hero-copy{padding:0 10px;}.hero-copy h1{font-size:34px!important;line-height:1.15;}.hero-copy .sb{font-size:15px;line-height:1.7;}}
 </style>
 
 <!-- HERO -->
 <section class="s" style="background:linear-gradient(180deg,rgba(250,246,239,.8),var(--cr));padding:0;">
 <div class="c hero-wrap">
-<div>
+<div class="hero-copy">
 <div class="k">Progetto B2B &middot; Brindisi, Puglia</div>
 <h1 style="margin:0 0 20px;font-size:48px;line-height:1.1;color:var(--g);font-family:Georgia,serif;font-weight:400;">La filiera che puoi conoscere. Il biologico che puoi verificare.</h1>
 <p class="sb" style="margin-bottom:28px;">Aia Pura Bio &egrave; una proposta B2B: un modello di filiera pugliese pensato per valorizzare qualit&agrave;, territorio e narrazione attraverso un ecosistema digitale informativo e un contatto umano diretto.</p>
 <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:20px;">
-<a href="#catalogo-p" class="b bp">Scopri il catalogo</a>
-<a href="https://aiapurabio.myshopify.com/" target="_blank" rel="noopener noreferrer" class="b bs">Vai allo shop</a>
-<a href="https://aiapurabio.myshopify.com/" target="_blank" rel="noopener noreferrer" class="b bo">Richiedi campione</a>
+<a href="#contatti" class="b bp">Richiedi informazioni</a>
+<a href="#catalogo-p" class="b bo">Consulta il catalogo</a>
+<button class="b bs oc" type="button">Apri Bianca</button>
 </div>
 <div class="bl" style="justify-content:flex-start;">
 <span class="bd">Modello B2B</span><span class="bd">Tracciabilit&agrave;</span><span class="bd">Territorio</span>
@@ -239,7 +236,7 @@ h2.t{margin:0 0 16px;font-size:40px;line-height:1.15;color:var(--g);font-family:
 
 
 <!-- STORYTELLING E VIDEO -->
-<section class="s sa">
+<section class="s sa" id="filiera">
 <div class="c ct">
 <h2 class="t">La filiera si racconta in storytelling</h2>
 <p class="sb" style="margin-bottom:16px;">Aia Pura Bio adotta un linguaggio visivo contemporaneo per raccontare il modello di filiera attraverso immagini, territorio e contenuti digitali pensati per i professionisti del food. Il formato verticale &egrave; progettato per social verticali, Reel, Stories, TikTok e Instagram, mentre il formato orizzontale &egrave; pensato per YouTube, sito web, cinema, televisione e spot pubblicitari.</p>
@@ -250,16 +247,16 @@ h2.t{margin:0 0 16px;font-size:40px;line-height:1.15;color:var(--g);font-family:
   <!-- VIDEO ORIZZONTALE -->
   <div style="width:100%;">
     <div class="vid-c" style="aspect-ratio:16/9; border-radius:16px; overflow:hidden; box-shadow:var(--sh); position:relative; background:#000;" onclick="toggleVid(this)">
-      <video class="story-vid" src="assets/videos/spot-orizzontale-aia-pura-bio-01.mp4" muted loop playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
-      <div class="vid-ov" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.2);cursor:pointer;"><div class="vid-ic" style="font-size:32px;color:#fff;">&#128263;</div></div>
+      <video class="story-vid" src="assets/videos/spot-orizzontale-aia-pura-bio-01.mp4" poster="assets/images/cover-spot-orizzontale.png" muted loop playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
+      <div class="vid-ov" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.2);cursor:pointer;"><div class="vid-ic" style="font-size:32px;color:#fff;">&#9654;</div></div>
     </div>
   </div>
 
   <!-- VIDEO VERTICALE -->
   <div style="width:100%; display:flex; justify-content:center;">
     <div class="vid-c" style="aspect-ratio:9/16; width:100%; max-width:320px; border-radius:16px; overflow:hidden; box-shadow:var(--sh); position:relative; background:#000;" onclick="toggleVid(this)">
-      <video class="story-vid" src="assets/videos/spot-verticale-filiera-aia-pura-bio.mp4" muted loop playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
-      <div class="vid-ov" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.2);cursor:pointer;"><div class="vid-ic" style="font-size:32px;color:#fff;">&#128263;</div></div>
+      <video class="story-vid" src="assets/videos/spot-verticale-filiera-aia-pura-bio.mp4" poster="assets/images/cover-storytelling-verticale.png" muted loop playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
+      <div class="vid-ov" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.2);cursor:pointer;"><div class="vid-ic" style="font-size:32px;color:#fff;">&#9654;</div></div>
     </div>
   </div>
 </div>
@@ -1842,7 +1839,7 @@ function toggleVid(container){
 <div class="cd ct"><img class="cd-img" src="assets/images/bianca-assistente-virtuale.png" alt="Rete e supporto"><h3>Rete e supporto</h3><p>Le opportunit&agrave; di collaborazione dovranno essere verificate con operatori, fornitori e professionisti del settore, mantenendo il progetto nel perimetro di uno studio di fattibilit&agrave;.</p></div>
 </div>
 <div class="ct" style="margin-top:24px;">
-<a href="javascript:void(0)" class="b bp oc">Parla con noi</a>
+<a href="#contatti" class="b bp">Contattaci</a>
 <a href="#catalogo-p" class="b bo" style="margin-left:10px;">Consulta il catalogo</a>
 </div>
 </div></section>
@@ -1855,7 +1852,7 @@ function toggleVid(container){
 <div class="fc"><h4>Aia Pura Bio</h4><p>Studio di fattibilit&agrave; per una filiera avicola biologica.</p><p>Brindisi, Puglia</p></div>
 <div class="fc"><h4>Prodotti</h4><a href="#catalogo-p">Uova biologiche</a><a href="#catalogo-p">Pollo biologico</a><a href="#catalogo-p">Gallina biologica</a><a href="#veg-p">Linea Veg</a></div>
 <div class="fc"><h4>Esplora</h4><a href="#blog-p">Blog</a><a href="#ricette-p">Ricette</a><a href="#sost-p">Sostenibilit&agrave;</a><a href="#gallery-p">Gallery</a><a href="#faq-p">FAQ</a><a href="#promo-p">Video e storytelling</a></div>
-<div class="fc"><h4>Contatti</h4><a href="#contatti">Invia una richiesta</a><a href="javascript:void(0)" class="oc">Apri l&rsquo;assistente</a><a href="javascript:void(0)">Materiale prototipale</a><a href="#delivery-p">Lavora con noi</a></div>
+<div class="fc"><h4>Contatti</h4><a href="#contatti">Invia una richiesta</a><a href="javascript:void(0)" class="oc">Apri l&rsquo;assistente</a><a href="#promo-p">Materiale prototipale</a><a href="#delivery-p">Lavora con noi</a></div>
 </div>
 <div class="fb">
 <p>&copy; 2026 Aia Pura Bio. Tutti i diritti riservati. &middot; Studio di fattibilit&agrave; &middot; Percorso informativo &middot; Relazione professionale</p>
