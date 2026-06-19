@@ -1,0 +1,15 @@
+../assets/images/benessere-animale-filiera-01.png
+../assets/images/bianca-assistente-virtuale.png
+../assets/images/campionatura-b2b-packaging-uova-qr-code.png
+../assets/images/catalogo-b2b-storytelling.png
+../assets/images/filiera-allevamento-collage.png
+../assets/images/gallina-biologica-prodotto.png
+../assets/images/hero-copertina-aia-pura-bio.png
+../assets/images/laboratorio-food-aia-pura-bio-orizzontale.png
+../assets/images/logo-aia-pura-bio.png
+../assets/images/packaging-qr-code-filiera.png
+../assets/images/pollo-biologico-ristorazione.png
+../assets/images/ricetta-pollo-bio-al-forno.png
+../assets/images/territorio-pugliese-storytelling.png
+../assets/images/uova-10-pezzi-packaging-prodotto.png
+../assets/images/uova-bio-prodotti-catalogo-b2b.png
