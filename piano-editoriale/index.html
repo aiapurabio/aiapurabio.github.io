@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AIA PURA BIO · Sistema visivo e piano editoriale</title>
+    <title>AIA PURA BIO · Piano editoriale visivo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Montserrat:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <style>
         :root {
             --verde-bosco: #2D5E3A;
@@ -16,6 +16,8 @@
             --bianco-puro: #FFFFFF;
             --grigio-caldo: #4A4A4A;
             --marrone-terra: #7B5B3A;
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 15px 40px rgba(45, 94, 58, 0.15);
         }
 
         body {
@@ -24,1009 +26,1365 @@
             background-color: var(--crema-naturale);
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            line-height: 1.7;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
         }
 
-        h1, h2, h3, h4, h5, h6, .playfair {
+        h1, h2, h3, h4, h5, h6 {
             font-family: 'Playfair Display', serif;
             color: var(--verde-bosco);
             margin-top: 0;
         }
 
-        .cta, .badge, .microcopy, .montserrat {
-            font-family: 'Montserrat', sans-serif;
-        }
+        p { margin-top: 0; margin-bottom: 15px; }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header.cover {
-            background-color: var(--verde-bosco);
-            color: var(--crema-naturale);
-            padding: 100px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
         
-        header.cover h1 {
-            color: var(--crema-naturale);
-            font-size: 3rem;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 2;
+        /* Menu Navigazione Interno */
+        .top-nav {
+            background: rgba(250, 246, 239, 0.95);
+            position: sticky; top: 0; z-index: 1000;
+            padding: 15px 0; border-bottom: 2px solid var(--oro-caldo);
+            text-align: center;
+            backdrop-filter: blur(10px);
         }
-
-        header.cover p {
-            font-size: 1.25rem;
-            max-width: 800px;
-            margin: 0 auto 30px auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .badge {
-            background-color: var(--oro-caldo);
-            color: var(--bianco-puro);
-            padding: 8px 16px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            display: inline-block;
+        .top-nav ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        .top-nav a { 
+            color: var(--verde-bosco); 
+            text-decoration: none; 
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 0.85rem; 
+            font-weight: 600; 
+            padding: 5px 0; 
+            transition: all 0.3s; 
+            border-bottom: 2px solid transparent;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
+        }
+        .top-nav a:hover { color: var(--oro-caldo); border-bottom: 2px solid var(--oro-caldo); }
+
+        /* HERO STEP 1 */
+        .hero {
+            padding: 80px 0;
+            background-color: var(--crema-naturale);
+        }
+        .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
+        @media (max-width: 992px) { .hero-grid { grid-template-columns: 1fr; } }
+        .hero-left .eyebrow {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--oro-caldo);
+            margin-bottom: 10px;
+            display: inline-block;
+            font-weight: 600;
+        }
+        .hero-left .eyebrow-separator {
+            width: 40px;
+            height: 2px;
+            background-color: var(--oro-caldo);
+            margin-bottom: 25px;
+        }
+        .hero-left h1 { font-size: 3.4rem; line-height: 1.15; margin-bottom: 25px; font-weight: 700; }
+        .hero-left .claim { font-size: 1.8rem; font-style: italic; color: var(--verde-oliva); margin-bottom: 30px; line-height: 1.35; }
+        
+        .credits { font-size: 1rem; color: var(--grigio-caldo); margin-bottom: 40px; line-height: 1.6; border-left: 2px solid var(--oro-caldo); padding-left: 15px; }
+        .credits .credit-label { font-family: 'Montserrat', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 0.75rem; color: var(--oro-caldo); display: block; margin-bottom: 3px; }
+        .credits .credit-role { font-size: 0.85rem; color: var(--verde-oliva); font-style: italic; }
+        
+        .keyword-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+        .keyword-badges .badge { 
+            background: rgba(255, 255, 255, 0.6); border: 1px solid rgba(197, 151, 59, 0.4); 
+            color: var(--verde-bosco); padding: 8px 16px; border-radius: 20px; 
+            font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 600;
+            display: flex; align-items: center; gap: 8px; box-shadow: var(--shadow-soft);
+        }
+        .keyword-badges .badge::before { content: ''; width: 6px; height: 6px; background: var(--oro-caldo); border-radius: 50%; display: inline-block; }
+
+        .hero-right { position: relative; }
+        .hero-image-wrap { width: 100%; aspect-ratio: 1/1; border-radius: 20px; box-shadow: var(--shadow-soft); overflow: hidden; background: var(--bianco-puro); display: flex; align-items: center; justify-content: center; }
+        .hero-image { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+        .hero-box {
+            position: absolute; bottom: -30px; left: -30px; background: var(--verde-bosco); color: var(--bianco-puro);
+            padding: 25px; border-radius: 15px; max-width: 320px; box-shadow: var(--shadow-hover);
             z-index: 2;
         }
+        .hero-box p { font-family: 'Montserrat', sans-serif; font-size: 1rem; line-height: 1.5; margin: 0; font-weight: 500; }
+        .nota-metodologica { margin-top: 50px; font-size: 0.85rem; color: var(--marrone-terra); border-left: 3px solid var(--oro-caldo); padding-left: 15px; font-style: italic; }
 
-        .claim {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--verde-oliva);
-            text-align: center;
-            padding: 40px 20px;
-            background: var(--bianco-puro);
-            font-style: italic;
-        }
-
-        .important-note {
-            background-color: rgba(197, 151, 59, 0.1);
-            border-left: 4px solid var(--oro-caldo);
-            padding: 15px 20px;
-            margin: 30px 0;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
-            color: var(--marrone-terra);
-            font-weight: 600;
-        }
-
-        section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background-color: var(--oro-caldo);
-            margin: 20px auto 0;
-        }
-
-        .bg-white {
-            background-color: var(--bianco-puro);
-        }
-
-        /* Recap Box */
-        .recap-box {
-            background: var(--bianco-puro);
-            border: 1px solid rgba(45, 94, 58, 0.2);
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
-        .recap-box ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .recap-box ul li {
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #eee;
-            display: flex;
-        }
-
-        .recap-box ul li strong {
-            width: 150px;
-            color: var(--verde-bosco);
-            font-family: 'Montserrat', sans-serif;
-            flex-shrink: 0;
-        }
-
-        /* Recap Sito Web */
-        .site-recap-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .site-recap-item {
-            background: var(--crema-naturale);
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 3px solid var(--verde-oliva);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--verde-bosco);
-            display: flex;
-            align-items: center;
-        }
-
-        /* Brand Board */
-        .brand-board {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: start;
-        }
-
-        .color-palette {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .color-swatch {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--bianco-puro);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.7rem;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        .typography-sample {
-            margin-top: 30px;
-            padding: 20px;
-            background: rgba(250, 246, 239, 0.5);
-            border-radius: 8px;
-        }
-
-        /* Direzioni Visive */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .visual-card {
-            background: var(--bianco-puro);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
-        }
-
-        .visual-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .visual-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-
-        .visual-card .content {
-            padding: 25px;
-        }
-
-        .visual-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-        }
-
-        /* Instagram Mockup */
-        .ig-container {
-            display: flex;
-            justify-content: center;
-            margin: 40px 0;
-        }
-
-        .phone-mockup {
-            width: 350px;
-            background: #fff;
-            border-radius: 40px;
-            border: 12px solid #111;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
-            overflow: hidden;
-            position: relative;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: #262626;
-        }
-
-        .phone-notch {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            height: 25px;
-            background: #111;
-            border-bottom-left-radius: 15px;
-            border-bottom-right-radius: 15px;
-            z-index: 10;
-        }
-
-        .ig-header {
-            padding: 40px 15px 15px;
-            border-bottom: 1px solid #dbdbdb;
-            text-align: center;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        .ig-profile-top {
-            display: flex;
-            padding: 20px 15px;
-            align-items: center;
-        }
-
-        .ig-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: var(--verde-bosco);
-            padding: 3px;
-            border: 2px solid #dbdbdb;
-        }
+        /* STRUTTURA SEZIONI */
+        section { padding: 100px 0; }
+        .bg-white { background-color: var(--bianco-puro); }
+        .bg-crema { background-color: var(--crema-naturale); }
+        .bg-verde { background-color: var(--verde-bosco); color: var(--crema-naturale); }
+        .bg-verde h2, .bg-verde h3, .bg-verde h4 { color: var(--bianco-puro); }
         
-        .ig-avatar img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #fff;
-        }
+        .section-header { margin-bottom: 60px; }
+        .section-number { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.2rem; color: var(--oro-caldo); margin-bottom: 10px; }
+        .section-header h2 { font-size: 3rem; margin-bottom: 20px; }
+        .section-desc { font-size: 1.2rem; color: var(--marrone-terra); max-width: 800px; font-style: italic; }
+        .bg-verde .section-desc { color: var(--crema-naturale); opacity: 0.9; }
 
-        .ig-stats {
-            display: flex;
-            justify-content: space-around;
-            flex-grow: 1;
-            text-align: center;
-        }
+        /* GRIGLIE */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        @media (max-width: 992px) { .grid-4, .grid-3 { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
 
-        .ig-stats div span {
-            display: block;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        .ig-stats div small {
-            color: #8e8e8e;
-            font-size: 13px;
-        }
-
-        .ig-bio {
-            padding: 0 15px 15px;
-            font-size: 14px;
-            line-height: 1.4;
-        }
-
-        .ig-bio strong {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .ig-bio a {
-            color: #00376b;
-            text-decoration: none;
-        }
-
-        .ig-buttons {
-            padding: 0 15px 15px;
-            display: flex;
-            gap: 10px;
-        }
-
-        .ig-btn {
-            flex: 1;
-            padding: 8px;
-            text-align: center;
-            background: #efefef;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 13px;
-        }
-
-        .ig-highlights {
-            display: flex;
-            gap: 15px;
-            padding: 0 15px 15px;
-            overflow-x: auto;
-            scrollbar-width: none;
-        }
-
-        .ig-highlight {
-            text-align: center;
-        }
-
-        .ig-highlight-img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: #fafafa;
-            border: 1px solid #dbdbdb;
-            padding: 2px;
-            margin-bottom: 5px;
-        }
+        /* CARDS */
+        .card { background: var(--bianco-puro); padding: 40px; border-radius: 16px; box-shadow: var(--shadow-soft); }
+        .card-num { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--oro-caldo); opacity: 0.3; line-height: 1; margin-bottom: 10px; }
+        .card h4 { font-size: 1.3rem; margin-bottom: 15px; }
         
-        .ig-highlight-img img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .ig-highlight span {
-            font-size: 11px;
-        }
-
-        .ig-tabs {
-            display: flex;
-            border-top: 1px solid #dbdbdb;
-        }
-
-        .ig-tab {
-            flex: 1;
-            text-align: center;
-            padding: 10px;
-            color: #8e8e8e;
-        }
-        .ig-tab.active {
-            color: #262626;
-            border-top: 1px solid #262626;
-            margin-top: -1px;
-        }
-
-        .ig-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2px;
-        }
-
-        .ig-grid-item {
-            aspect-ratio: 1 / 1;
-            background: #efefef;
-            position: relative;
-        }
-
-        .ig-grid-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Template Social */
-        .template-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .template-card {
-            aspect-ratio: 4/5;
-            background-color: var(--verde-bosco);
-            border-radius: 8px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            text-align: center;
-            color: var(--bianco-puro);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .template-card h4 {
-            color: var(--oro-caldo);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-        }
-
-        .template-card p {
-            font-size: 1rem;
-            line-height: 1.3;
-            margin: 0;
-            font-family: 'Playfair Display', serif;
-        }
-
-        /* Carosello */
-        .carousel-container {
-            display: flex;
-            gap: 15px;
-            overflow-x: auto;
-            padding: 20px 0;
-            scrollbar-width: thin;
-        }
-
-        .carousel-slide {
-            flex: 0 0 300px;
-            aspect-ratio: 1/1;
-            background: var(--bianco-puro);
-            border-radius: 12px;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border: 1px solid rgba(45, 94, 58, 0.1);
-        }
-
-        .carousel-slide h4 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-        }
+        /* BRAND BOARD */
+        .brand-block { margin-bottom: 60px; }
+        .brand-block h3 { border-bottom: 2px solid var(--verde-oliva); padding-bottom: 10px; margin-bottom: 30px; font-size: 1.8rem;}
         
-        .carousel-slide span {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            color: var(--oro-caldo);
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
+        .logo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .logo-box { padding: 40px 20px; text-align: center; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 200px; box-shadow: var(--shadow-soft); }
+        .logo-box img { max-width: 120px; margin-bottom: 10px; }
+        .logo-box span { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-top: auto; }
+        .bg-standard { background: var(--bianco-puro); border: 1px solid #eee; }
+        .bg-verde-box { background: var(--verde-bosco); color: var(--bianco-puro); }
+        .bg-crema-box { background: var(--crema-naturale); border: 1px solid var(--oro-caldo); }
+        .filter-white { filter: brightness(0) invert(1); }
+        .filter-gold { filter: brightness(0) sepia(1) hue-rotate(15deg) saturate(300%) opacity(0.8); }
+        .filter-green { filter: brightness(0) invert(0.3) sepia(1) hue-rotate(70deg) saturate(400%); }
+        .vertical-mockup { display: flex; flex-direction: column; align-items: center; }
+        .vertical-mockup img { max-width: 80px; }
+        .vertical-text { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-top: 5px; line-height: 1; text-align: center; }
+        .mockup-nota { font-size: 0.8rem; color: var(--oro-caldo); font-style: italic; margin-top: 15px; }
 
-        /* Stories */
-        .stories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-        }
+        .palette-grid { display: flex; height: 150px; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-soft); }
+        .palette-col { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; padding: 15px; color: white; font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: bold; }
+        .text-dark { color: var(--grigio-caldo); }
 
-        .story-card {
-            aspect-ratio: 9/16;
-            background: var(--verde-oliva);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            text-align: center;
-            color: var(--bianco-puro);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 1.1rem;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
+        .typo-box { padding: 30px; border: 1px solid #ddd; border-radius: 12px; margin-bottom: 20px; }
+        .typo-title { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; text-transform: uppercase; color: var(--oro-caldo); letter-spacing: 1px; margin-bottom: 10px; }
+        .typo-demo { font-size: 2.5rem; line-height: 1.2; color: var(--verde-bosco); }
 
-        /* Pilastri / Funnel / Calendario */
-        .list-section {
-            background: var(--bianco-puro);
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
-        }
+        .mood-table { width: 100%; border-collapse: collapse; background: var(--bianco-puro); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-soft); }
+        .mood-table th, .mood-table td { padding: 15px 20px; border-bottom: 1px solid #eee; text-align: left; }
+        .mood-table th { background: var(--verde-bosco); color: white; font-family: 'Montserrat', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; width: 30%; }
 
-        .list-section ol, .list-section ul {
-            padding-left: 20px;
-        }
+        /* MEDIA LIBRARY & CAROUSEL */
+        .carousel-wrapper { margin-bottom: 60px; }
+        .carousel-wrapper h4 { margin-bottom: 20px; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; color: var(--verde-oliva); }
+        .slider-container { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px; scrollbar-width: thin; scrollbar-color: var(--oro-caldo) var(--crema-naturale); }
+        .media-card { flex: 0 0 300px; background: var(--bianco-puro); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-soft); }
+        .media-img { width: 100%; height: 220px; object-fit: cover; }
+        .media-info { padding: 20px; }
+        .media-label { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; color: var(--oro-caldo); font-weight: bold; text-transform: uppercase; margin-bottom: 5px; }
+        .media-title { font-size: 1.1rem; font-family: 'Playfair Display', serif; color: var(--verde-bosco); margin-bottom: 10px; font-weight: bold; }
+        .media-format { font-size: 0.85rem; color: var(--grigio-caldo); }
+        
+        /* DISEGNI VISIVI / DIREZIONI */
+        .dir-card { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 3/4; display: flex; flex-direction: column; justify-content: flex-end; }
+        .dir-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+        .dir-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(45, 94, 58, 0.95), transparent); z-index: 2; }
+        .dir-content { position: relative; z-index: 3; padding: 30px; color: white; }
+        .dir-content h4 { color: white; font-size: 1.5rem; margin-bottom: 10px; }
+        .dir-tag { display: inline-block; background: var(--oro-caldo); color: white; font-family: 'Montserrat', sans-serif; font-size: 0.7rem; padding: 4px 10px; border-radius: 20px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
 
-        .list-section li {
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
+        /* SPOT & STORYTELLING */
+        .spot-hero { width: 100%; border-radius: 20px; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 40px; box-shadow: var(--shadow-soft); }
+        .spot-box { background: var(--bianco-puro); padding: 30px; border-radius: 16px; border-top: 4px solid var(--oro-caldo); box-shadow: var(--shadow-soft); }
+        .spot-box h4 { font-size: 1.4rem; border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 20px; }
+        .sb-line { margin-bottom: 10px; padding-left: 15px; border-left: 2px solid var(--verde-oliva); font-size: 0.9rem; }
+        .prompt-box { background: #111; color: #eee; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.85rem; margin-top: 15px; border-left: 3px solid var(--oro-caldo); }
 
-        .cal-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
+        /* FEED IG & MOCKUP */
+        .ig-phone { max-width: 350px; margin: 0 auto; border: 14px solid #111; border-radius: 40px; background: #fff; overflow: hidden; box-shadow: var(--shadow-soft); }
+        .ig-header { padding: 40px 20px 20px; text-align: center; border-bottom: 1px solid #eee; }
+        .ig-header-name { font-weight: bold; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; color: #111; }
+        .ig-grid-3x3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: #fff; }
+        .ig-item { aspect-ratio: 1/1; background: #eee; }
+        .ig-item img { width: 100%; height: 100%; object-fit: cover; }
+        .feed-list h4 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; color: var(--verde-oliva); margin-top: 30px; margin-bottom: 15px; text-transform: uppercase; }
+        .feed-list ul { list-style: none; padding: 0; margin: 0; }
+        .feed-list li { padding: 8px 0; border-bottom: 1px solid #eee; font-size: 0.95rem; }
+        .feed-list li strong { color: var(--verde-bosco); }
 
-        .cal-week {
-            background: var(--crema-naturale);
-            padding: 20px;
-            border-radius: 8px;
-            border-top: 4px solid var(--verde-bosco);
-        }
+        /* 3x3 PREVIEW CARDS */
+        .preview-card { background: var(--bianco-puro); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-soft); }
+        .preview-img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
+        .preview-info { padding: 20px; }
+        .preview-info p { margin: 5px 0; font-size: 0.85rem; }
+        .preview-info span { font-family: 'Montserrat', sans-serif; font-weight: bold; font-size: 0.75rem; color: var(--oro-caldo); text-transform: uppercase; }
 
-        .cal-week h4 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-            color: var(--marrone-terra);
-        }
+        /* 9 TEMPLATE DYNAMIC CAROUSEL */
+        .template-slider { display: flex; gap: 30px; overflow-x: auto; padding-bottom: 30px; scrollbar-width: thin; }
+        .template-slide { flex: 0 0 800px; display: grid; grid-template-columns: 350px 1fr; background: var(--bianco-puro); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-soft); }
+        @media (max-width: 992px) { .template-slide { flex: 0 0 90vw; grid-template-columns: 1fr; } }
+        .tpl-visual { background: #eee; position: relative; }
+        .tpl-visual img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/5; }
+        .tpl-content { padding: 40px; }
+        .tpl-num { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--oro-caldo); opacity: 0.5; line-height: 1; margin-bottom: 10px; }
+        .tpl-data { margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
 
-        /* Checklist */
-        .checklist {
-            list-style: none;
-            padding: 0;
-        }
+        /* CAROSELLO EDUCATIVO */
+        .edu-slide { aspect-ratio: 1/1; display: flex; flex-direction: column; justify-content: center; text-align: center; padding: 40px; border-radius: 16px; box-shadow: var(--shadow-soft); position: relative; overflow: hidden; }
+        .edu-slide.dark { background: var(--verde-bosco); color: white; }
+        .edu-slide.light { background: var(--crema-naturale); border: 2px solid var(--oro-caldo); }
+        .edu-slide h4 { font-size: 1.6rem; line-height: 1.3; }
+        .edu-slide.dark h4 { color: white; }
+        .edu-num { position: absolute; top: 20px; left: 20px; font-family: 'Montserrat', sans-serif; font-weight: bold; color: var(--oro-caldo); font-size: 0.9rem; }
 
-        .checklist li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 12px;
-            font-size: 1.05rem;
-        }
+        /* STORIES */
+        .story-card { aspect-ratio: 9/16; border-radius: 16px; overflow: hidden; position: relative; box-shadow: var(--shadow-soft); }
+        .story-bg { width: 100%; height: 100%; object-fit: cover; }
+        .story-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; flex-direction: column; justify-content: space-between; padding: 20px; }
+        .story-sticker { background: white; color: var(--verde-bosco); padding: 10px 15px; border-radius: 8px; font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: bold; text-align: center; margin: auto; max-width: 80%; }
 
-        .checklist li::before {
-            content: '✓';
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 24px;
-            height: 24px;
-            background-color: var(--verde-oliva);
-            color: white;
-            border-radius: 50%;
-            margin-right: 15px;
-            font-size: 14px;
-            font-weight: bold;
-        }
+        /* TABELLE PLANNER */
+        .planner-table { width: 100%; border-collapse: collapse; background: var(--bianco-puro); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-soft); margin-bottom: 30px; }
+        .planner-table th { background: var(--verde-bosco); color: white; padding: 15px; text-align: left; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; text-transform: uppercase; }
+        .planner-table td { padding: 15px; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+        .planner-table tr:nth-child(even) { background: var(--crema-naturale); }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .brand-board {
-                grid-template-columns: 1fr;
-            }
-            .recap-box ul li {
-                flex-direction: column;
-            }
-            .recap-box ul li strong {
-                width: 100%;
-                margin-bottom: 5px;
-            }
-            header.cover h1 {
-                font-size: 2rem;
-            }
-        }
+        /* FOOTER */
+        .footer { background: var(--verde-bosco); color: var(--crema-naturale); text-align: center; padding: 60px 20px; }
+        .footer-logo { max-width: 150px; margin-bottom: 20px; filter: brightness(0) invert(1); }
+        .footer-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 10px; color: white;}
+        .footer-credits { font-size: 0.9rem; opacity: 0.8; }
     </style>
 </head>
 <body>
 
-    <!-- 1. Cover iniziale -->
-    <header class="cover">
+    <!-- MENU INTERNO -->
+    <nav class="top-nav">
         <div class="container">
-            <div class="badge" style="margin-bottom: 20px;">Project Work LUM · Socialin Communication / Federica Creative · Studio di fattibilità</div>
-            <h1>AIA PURA BIO<br><span style="font-size: 2rem; font-weight: 400;">Sistema visivo e piano editoriale</span></h1>
-            <p class="montserrat">Content strategy Instagram per una filiera avicola biologica B2B, tra fiducia, territorio, packaging, QR code, Bianca AI e tracciabilità phygital.</p>
+            <ul>
+                <li><a href="#brand-board">Brand board</a></li>
+                <li><a href="#feed-preview">Feed preview 3×3</a></li>
+                <li><a href="#templates">9 template Instagram</a></li>
+                <li><a href="#carosello-educativo">Carosello educativo</a></li>
+                <li><a href="#stories">Stories</a></li>
+                <li><a href="#content-planner">Content planner</a></li>
+                <li><a href="#metodo-kpi">Metodo & KPI futuri</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- STEP 1: HERO -->
+    <header class="hero">
+        <div class="container hero-grid">
+            <div class="hero-left">
+                <span class="eyebrow">CASO STUDIO DIGITALE · VISUAL SYSTEM · CONTENT STRATEGY · PIANO EDITORIALE</span>
+                <div class="eyebrow-separator"></div>
+                <h1>Aia Pura Bio — Piano editoriale visivo</h1>
+                <div class="claim">“La filiera che puoi conoscere.<br>Il biologico che puoi verificare.”</div>
+                <div class="credits">
+                    <span class="credit-label">A cura di Federica Centonze</span>
+                    Caso studio creativo-strategico · Socialin Communication / Federica Creative
+                </div>
+                <div class="keyword-badges">
+                    <span class="badge">Brand board</span>
+                    <span class="badge">Feed preview 3×3</span>
+                    <span class="badge">9 template Instagram</span>
+                    <span class="badge">Carosello educativo</span>
+                    <span class="badge">Stories</span>
+                    <span class="badge">Content planner</span>
+                    <span class="badge">Metodo & KPI futuri</span>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="hero-image-wrap">
+                    <img src="../assets/images/hero-copertina-aia-pura-bio.png" alt="Aia Pura Bio Hero" class="hero-image">
+                </div>
+                <div class="hero-box">
+                    <p>Prototipo progettuale.<br>Sistema visivo e piano editoriale come modello operativo di sviluppo futuro.</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="nota-metodologica">
+                Questo documento rappresenta un prototipo progettuale e strategico. I dati, le metriche e i contenuti presentati sono ipotesi di lavoro formulate per il Project Work LUM.<br>Il progetto non è una validazione commerciale reale, ma uno studio di fattibilità.
+            </div>
         </div>
     </header>
 
-    <div class="claim">
-        "La filiera che puoi conoscere. Il biologico che puoi verificare."
-    </div>
-
-    <!-- Container Principale -->
-    <main class="container">
-        
-        <div class="important-note">
-            I contenuti, i dati, i mockup e i KPI presenti in questa pagina hanno funzione progettuale e non rappresentano performance reali.
+    <!-- STEP 2: OBIETTIVO DEL DOCUMENTO -->
+    <section class="bg-white">
+        <div class="container grid-2">
+            <div>
+                <h2 style="font-size: 3rem; margin-bottom: 20px;">Obiettivo del documento</h2>
+                <p class="section-desc">Questo documento presenta un prototipo progettuale di sistema visivo-editoriale per Aia Pura Bio, pensato come modello operativo di sviluppo futuro. Il lavoro integra brand board, feed preview, template Instagram, caroselli, stories, planner operativo, metodo e KPI futuri, nel quadro del Project Work LUM.</p>
+            </div>
+            <div class="grid-2">
+                <div class="card" style="padding: 30px;">
+                    <div class="card-num">01</div>
+                    <h4>Identità visiva</h4>
+                    <p style="font-size: 0.9rem;">Regole di brand, palette, tipografia e applicazioni del logo.</p>
+                </div>
+                <div class="card" style="padding: 30px;">
+                    <div class="card-num">02</div>
+                    <h4>Sistema social</h4>
+                    <p style="font-size: 0.9rem;">Media library, template Instagram e organizzazione del feed.</p>
+                </div>
+                <div class="card" style="padding: 30px;">
+                    <div class="card-num">03</div>
+                    <h4>Storytelling / spot</h4>
+                    <p style="font-size: 0.9rem;">Concept narrativi e storyboard per contenuti video B2B.</p>
+                </div>
+                <div class="card" style="padding: 30px;">
+                    <div class="card-num">04</div>
+                    <h4>Piano operativo</h4>
+                    <p style="font-size: 0.9rem;">Calendario, dashboard KPI futuri e metodo applicato.</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- 2. Obiettivo del documento -->
-        <section id="obiettivo">
-            <h2 class="section-title">Obiettivo del Documento</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.2rem;">
-                Questa pagina traduce il caso <strong>Aia Pura Bio</strong> in un sistema editoriale Instagram e in una griglia di contenuti prototipali. 
-                Aia Pura Bio è uno studio di fattibilità strategica per una filiera avicola biologica a km zero, radicata in Puglia/Brindisi e orientata al target B2B food premium: pasticcerie artigianali, laboratori di pasta fresca, ristorazione selezionata, gastronomie e operatori professionali del food.
-            </p>
-        </section>
-
-        <!-- 3. Recap del Project Work -->
-        <section id="recap-project" class="bg-white" style="padding: 40px; border-radius: 12px; margin-bottom: 80px;">
-            <h2 class="section-title" style="margin-bottom: 30px;">Recap del Project Work</h2>
-            <div class="recap-box">
-                <ul>
-                    <li><strong>Titolo:</strong> Neuromarketing e costruzione della fiducia nella filiera avicola biologica</li>
-                    <li><strong>Tema:</strong> Studio di fattibilità del modello consortile ipotetico Aia Pura Bio tra packaging, funnel ed ecosistema digitale</li>
-                    <li><strong>Target:</strong> B2B food premium</li>
-                    <li><strong>Strumenti:</strong> Sito, catalogo, packaging, QR code, Bianca AI, Shopify prototipale, funnel, tracciabilità phygital</li>
-                </ul>
+    <!-- STEP 3: BRAND BOARD -->
+    <section id="brand-board" class="bg-crema">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">01.</div>
+                <h2>Brand board</h2>
+                <div class="section-desc">Questa sezione raccoglie le regole visive del brand: logo, palette, font, texture, mood fotografico e applicazioni grafiche.</div>
             </div>
-        </section>
 
-        <!-- 4. Recap del sito web -->
-        <section id="recap-sito">
-            <h2 class="section-title">Recap dell'Ecosistema Digitale</h2>
-            <div class="site-recap-grid">
-                <div class="site-recap-item">Home / claim</div>
-                <div class="site-recap-item">Chi è Aia Pura Bio</div>
-                <div class="site-recap-item">Metodo biologico</div>
-                <div class="site-recap-item">Filiera corta</div>
-                <div class="site-recap-item">Benessere animale</div>
-                <div class="site-recap-item">Tracciabilità phygital</div>
-                <div class="site-recap-item">Territorio pugliese</div>
-                <div class="site-recap-item">Qualità per professionisti</div>
-                <div class="site-recap-item">Catalogo B2B</div>
-                <div class="site-recap-item">Bianca AI</div>
-                <div class="site-recap-item">Blog e ricette</div>
-                <div class="site-recap-item">Contatti</div>
-                <div class="site-recap-item">Shop prototipale</div>
+            <!-- B/C/D. Logo System -->
+            <div class="brand-block">
+                <h3>Logo system e prove colore</h3>
+                <div class="logo-grid mb-8">
+                    <div class="logo-box bg-standard">
+                        <img src="../assets/images/logo-aia-pura-bio.png" alt="Logo Principale" style="max-width: 200px; width: 100%;">
+                        <span>Principale Orizzontale</span>
+                    </div>
+                    <div class="logo-box bg-verde-box">
+                        <img src="../assets/images/logo-aia-pura-bio.png" alt="Logo Negativo" class="filter-white" style="max-width: 200px; width: 100%;">
+                        <span>Negativo su fondo Verde</span>
+                    </div>
+                    <div class="logo-box bg-crema-box">
+                        <img src="../assets/images/logo-aia-pura-bio.png" alt="Logo Oro" class="filter-gold" style="max-width: 200px; width: 100%;">
+                        <span>Versione Oro Caldo</span>
+                    </div>
+                    <div class="logo-box bg-standard">
+                        <img src="../assets/images/logo-aia-pura-bio.png" alt="Logo Verde" class="filter-green" style="max-width: 200px; width: 100%;">
+                        <span>Monocromatico Verde</span>
+                    </div>
+                </div>
+
+                <h4 style="margin-top: 40px; margin-bottom: 20px;">Declinazione Logo Verticale & Icona</h4>
+                <div class="logo-grid">
+                    <div class="logo-box bg-crema-box">
+                        <img src="../assets/images/logo-aiapurabio-verticale.png" alt="Logo Verticale" style="max-height: 100px;">
+                        <span class="mockup-nota">1. Verticale su fondo crema</span>
+                    </div>
+                    <div class="logo-box bg-verde-box">
+                        <img src="../assets/images/logo-aiapurabio-verticale.png" alt="Logo Verticale" class="filter-white" style="max-height: 100px;">
+                        <span class="mockup-nota">2. Verticale su fondo verde bosco</span>
+                    </div>
+                    <div class="logo-box bg-crema-box">
+                        <img src="../assets/images/logo-aiapurabio-verticale.png" alt="Logo Verticale" class="filter-gold" style="max-height: 100px;">
+                        <span class="mockup-nota">3. Verticale oro su fondo crema</span>
+                    </div>
+                    <div class="logo-box bg-standard">
+                        <img src="../assets/images/logo-aiapurabio-verticale.png" alt="Logo Verticale" class="filter-green" style="max-height: 100px;">
+                        <span class="mockup-nota">4. Verticale verde su fondo bianco</span>
+                    </div>
+                    <div class="logo-box bg-standard">
+                        <img src="../assets/images/logo-aiapurabio-icona-rotondo.png" alt="Icona Rotonda" style="max-height: 80px; border-radius: 50%;">
+                        <span class="mockup-nota">5. Logo tondo / Icona</span>
+                    </div>
+                </div>
             </div>
-        </section>
 
-        <!-- 5. Brand board -->
-        <section id="brand-board" class="bg-white" style="padding: 60px 40px; border-radius: 12px; margin-bottom: 80px;">
-            <h2 class="section-title">Brand Board</h2>
-            <div class="brand-board">
+            <!-- E. Palette Cromatica -->
+            <div class="brand-block">
+                <h3>Palette Cromatica</h3>
+                <div class="palette-grid">
+                    <div class="palette-col" style="background-color: var(--verde-bosco);">VERDE BOSCO<br>#2D5E3A</div>
+                    <div class="palette-col" style="background-color: var(--verde-oliva);">VERDE OLIVA<br>#6B8E23</div>
+                    <div class="palette-col" style="background-color: var(--oro-caldo);">ORO CALDO<br>#C5973B</div>
+                    <div class="palette-col text-dark" style="background-color: var(--crema-naturale);">CREMA NATURALE<br>#FAF6EF</div>
+                    <div class="palette-col text-dark" style="background-color: var(--bianco-puro);">BIANCO PURO<br>#FFFFFF</div>
+                    <div class="palette-col" style="background-color: var(--grigio-caldo);">GRIGIO CALDO<br>#4A4A4A</div>
+                    <div class="palette-col" style="background-color: var(--marrone-terra);">MARRONE TERRA<br>#7B5B3A</div>
+                </div>
+            </div>
+
+            <!-- F/G. Tipografia e Texture -->
+            <div class="grid-2 brand-block">
                 <div>
-                    <img src="../assets/images/logo-aia-pura-bio.png" alt="Logo Aia Pura Bio" style="max-width: 200px; margin-bottom: 30px;">
-                    <h3 class="montserrat">Color Palette</h3>
-                    <div class="color-palette">
-                        <div class="color-swatch" style="background-color: var(--verde-bosco);">#2D5E3A</div>
-                        <div class="color-swatch" style="background-color: var(--verde-oliva);">#6B8E23</div>
-                        <div class="color-swatch" style="background-color: var(--oro-caldo);">#C5973B</div>
-                        <div class="color-swatch" style="background-color: var(--crema-naturale); color: var(--grigio-caldo);">#FAF6EF</div>
-                        <div class="color-swatch" style="background-color: var(--bianco-puro); color: var(--grigio-caldo);">#FFFFFF</div>
-                        <div class="color-swatch" style="background-color: var(--grigio-caldo);">#4A4A4A</div>
-                        <div class="color-swatch" style="background-color: var(--marrone-terra);">#7B5B3A</div>
+                    <h3>Tipografia</h3>
+                    <div class="typo-box">
+                        <div class="typo-title">Font Primario / Titoli</div>
+                        <div class="typo-demo" style="font-family: 'Playfair Display', serif;">Playfair Display</div>
+                        <p style="font-size: 0.85rem; margin-top: 10px;">Eleganza, autorevolezza, premiumness agricola.</p>
+                    </div>
+                    <div class="typo-box">
+                        <div class="typo-title">Font Secondario / Body Copy</div>
+                        <div class="typo-demo" style="font-family: 'Lato', sans-serif; font-size: 2rem;">Lato Regular</div>
+                        <p style="font-size: 0.85rem; margin-top: 10px;">Leggibilità chiara per testi descrittivi.</p>
+                    </div>
+                    <div class="typo-box">
+                        <div class="typo-title">Font Terziario / Microcopy</div>
+                        <div class="typo-demo" style="font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: bold;">MONTSERRAT</div>
+                        <p style="font-size: 0.85rem; margin-top: 10px;">Interfaccia, pulsanti CTA, label grafiche.</p>
                     </div>
                 </div>
                 <div>
-                    <h3 class="montserrat">Tipografia</h3>
-                    <div class="typography-sample">
-                        <h1 style="margin-bottom: 10px;">Playfair Display</h1>
-                        <p class="montserrat" style="margin-bottom: 15px; font-weight: bold; color: var(--grigio-caldo);">Montserrat per CTA e microcopy</p>
-                        <p style="font-family: 'Lato', sans-serif; font-size: 1.1rem; margin:0;">Lato per i testi estesi, garantendo massima leggibilità ed eleganza per un brand premium e rassicurante.</p>
+                    <h3>Texture & Pattern</h3>
+                    <div class="grid-2">
+                        <div class="card" style="padding: 0; border: 1px solid var(--oro-caldo); overflow: hidden; display: flex; flex-direction: column;">
+                            <div style="position: relative;">
+                                <span style="position: absolute; top: 15px; left: 15px; background: rgba(255,255,255,0.9); padding: 5px 12px; border-radius: 20px; font-family: 'Montserrat', sans-serif; font-size: 0.65rem; font-weight: bold; color: var(--oro-caldo);">TEXTURE 01</span>
+                                <img src="../assets/images/pattern-filiera.png" alt="Pattern filiera" style="width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block;">
+                            </div>
+                            <div style="padding: 20px;">
+                                <h4 style="font-size: 1.1rem; margin-bottom: 10px;">Pattern filiera</h4>
+                                <p style="font-size: 0.85rem; line-height: 1.5; color: var(--marrone-terra); margin-bottom: 10px;">Texture grafica modulare ispirata a uova, foglie, tracciabilità, packaging e filiera agricola biologica.</p>
+                                <p style="font-size: 0.8rem; line-height: 1.5; color: var(--grigio-caldo);"><strong>Uso consigliato:</strong> sfondi per brand board, packaging secondario, slide, caroselli educational e materiali editoriali.</p>
+                            </div>
+                        </div>
+                        <div class="card" style="padding: 0; border: 1px solid var(--verde-oliva); overflow: hidden; display: flex; flex-direction: column;">
+                            <div style="position: relative;">
+                                <span style="position: absolute; top: 15px; left: 15px; background: rgba(255,255,255,0.9); padding: 5px 12px; border-radius: 20px; font-family: 'Montserrat', sans-serif; font-size: 0.65rem; font-weight: bold; color: var(--verde-oliva);">TEXTURE 02</span>
+                                <img src="../assets/images/texture%20foglie-natura.png" alt="Texture foglie / natura" style="width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block;">
+                            </div>
+                            <div style="padding: 20px;">
+                                <h4 style="font-size: 1.1rem; margin-bottom: 10px;">Texture foglie / natura</h4>
+                                <p style="font-size: 0.85rem; line-height: 1.5; color: var(--marrone-terra); margin-bottom: 10px;">Fondo botanico morbido, con ombre vegetali, carta naturale, verde oliva, crema e oro caldo.</p>
+                                <p style="font-size: 0.8rem; line-height: 1.5; color: var(--grigio-caldo);"><strong>Uso consigliato:</strong> cover, sezioni narrative, hero secondarie, mockup editoriali e sfondi per presentazioni.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div style="margin-top: 30px;">
-                        <h3 class="montserrat">Mood & Tono di Voce</h3>
-                        <p>Premium, biologico, naturale, pugliese, editoriale, rassicurante, professionale, B2B.</p>
+                    <p style="font-size: 0.8rem; color: var(--grigio-caldo); font-style: italic; margin-top: 15px; line-height: 1.5;">Le texture sono asset visivi progettuali generati per supportare la costruzione dell’identità editoriale di Aia Pura Bio. Non rappresentano materiali ufficiali già validati commercialmente, ma elementi grafici di studio per il Project Work LUM.</p>
+                </div>
+            </div>
+
+            <!-- H. Mood fotografico -->
+            <div class="brand-block">
+                <h3>Mood fotografico</h3>
+                <table class="mood-table">
+                    <tr><th>Luce</th><td>Naturale, morbida, "golden hour", nessun flash diretto o luci fredde industriali.</td></tr>
+                    <tr><th>Texture</th><td>Materica, enfasi su superfici naturali (legno grezzo, cartone riciclato, paglia, farina).</td></tr>
+                    <tr><th>Toni</th><td>Caldi, predominanza di verdi terrosi, gialli dorati, bianchi caldi.</td></tr>
+                    <tr><th>Soggetti</th><td>Prodotti genuini in fase di lavorazione artigianale, dettagli del packaging, animali in libertà.</td></tr>
+                    <tr><th>Registro Visivo</th><td>Premium rustico, rassicurante, autentico, professionale per il B2B.</td></tr>
+                </table>
+            </div>
+            
+            <div class="nota-metodologica">Nota: L'identità visiva è stata progettata per elevare la percezione B2B, distaccandosi dall'immaginario mass-market.</div>
+        </div>
+    </section>
+
+    <!-- STEP 4: MEDIA LIBRARY -->
+    <section class="bg-white">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">02.</div>
+                <h2>Media library immagini e video</h2>
+                <div class="section-desc">Questa sezione raccoglie gli asset visivi del progetto e li organizza per orientamento e funzione.</div>
+            </div>
+
+            <!-- Immagini Orizzontali -->
+            <div class="carousel-wrapper">
+                <h4>Immagini orizzontali (Sito, Cover, Cataloghi)</h4>
+                <div class="slider-container">
+                    <div class="media-card"><img class="media-img" src="../assets/images/laboratorio-food-aia-pura-bio-orizzontale.png" alt="Laboratorio"><div class="media-info"><div class="media-label">Immagine</div><div class="media-title">Laboratorio B2B</div><div class="media-format">Uso: Hero / Catalogo</div></div></div>
+                    <div class="media-card"><img class="media-img" src="../assets/images/hero-copertina-aia-pura-bio.png" alt="Hero"><div class="media-info"><div class="media-label">Immagine</div><div class="media-title">Copertina Sito</div><div class="media-format">Uso: Hero</div></div></div>
+                    <div class="media-card"><img class="media-img" src="../assets/images/territorio-pugliese-storytelling.png" alt="Puglia"><div class="media-info"><div class="media-label">Immagine</div><div class="media-title">Territorio Pugliese</div><div class="media-format">Uso: Storytelling B2B</div></div></div>
+                    <div class="media-card"><img class="media-img" src="../assets/images/catalogo-b2b-storytelling.png" alt="Catalogo"><div class="media-info"><div class="media-label">Immagine</div><div class="media-title">Copertina Catalogo</div><div class="media-format">Uso: Brochure / Web</div></div></div>
+                </div>
+            </div>
+
+            <!-- Immagini Quadrate/Verticali -->
+            <div class="carousel-wrapper">
+                <h4>Immagini quadrate e grafiche (Post IG, Caroselli)</h4>
+                <div class="slider-container">
+                    <div class="media-card"><img class="media-img" src="../assets/images/gallina-biologica-prodotto.png" alt="Gallina"><div class="media-info"><div class="media-label">Prodotto</div><div class="media-title">Gallina Bio</div><div class="media-format">Uso: Post Feed</div></div></div>
+                    <div class="media-card"><img class="media-img" src="../assets/images/uova-10-pezzi-packaging-prodotto.png" alt="Uova"><div class="media-info"><div class="media-label">Prodotto</div><div class="media-title">Uova Packaging</div><div class="media-format">Uso: Post / Catalogo</div></div></div>
+                    <div class="media-card"><img class="media-img" src="../assets/images/benessere-animale-filiera-01.png" alt="Filiera"><div class="media-info"><div class="media-label">Filiera</div><div class="media-title">Benessere Animale</div><div class="media-format">Uso: Carosello</div></div></div>
+                    <div class="media-card"><img class="media-img" src="../assets/images/filiera-allevamento-collage.png" alt="Collage"><div class="media-info"><div class="media-label">Territorio</div><div class="media-title">Collage Filiera</div><div class="media-format">Uso: Post / Story</div></div></div>
+                </div>
+            </div>
+
+            <!-- Immagini Bianca AI / QR -->
+            <div class="carousel-wrapper">
+                <h4>Immagini Bianca AI / QR / Packaging</h4>
+                <div class="slider-container">
+                    <div class="media-card"><img class="media-img" src="../assets/images/packaging-qr-code-filiera.png" alt="QR"><div class="media-info"><div class="media-label">Tech</div><div class="media-title">Scansione QR</div><div class="media-format">Uso: Post Istruzioni</div></div></div>
+                    <div class="media-card"><img class="media-img" src="../assets/images/bianca-assistente-virtuale.png" alt="Bianca"><div class="media-info"><div class="media-label">Assistente</div><div class="media-title">Avatar Bianca AI</div><div class="media-format">Uso: Reel Cover / Post</div></div></div>
+                    <div class="media-card"><img class="media-img" src="../assets/images/campionatura-b2b-packaging-uova-qr-code.png" alt="Campionatura"><div class="media-info"><div class="media-label">Conversione</div><div class="media-title">Campionatura B2B</div><div class="media-format">Uso: Post Lead Gen</div></div></div>
+                </div>
+            </div>
+
+            <!-- MEDIA LIBRARY VIDEO -->
+            <div class="carousel-wrapper mt-5 pt-5" style="border-top: 1px solid #eee;">
+                <h3 style="font-size: 2rem; margin-bottom: 20px;">Media library video</h3>
+                <p style="font-size: 0.95rem; color: var(--grigio-caldo); margin-bottom: 20px;">Questa sezione raccoglie i video utili per spot, reel e storytelling organizzati per categorie.</p>
+            </div>
+
+            <!-- Video verticali -->
+            <div class="carousel-wrapper">
+                <h4>Video verticali</h4>
+                <div class="slider-container">
+                    <div class="media-card">
+                        <video class="media-img" controls preload="metadata"><source src="../assets/videos/galline-video-verticale-filiera-avicola-01.mp4" type="video/mp4"></video>
+                        <div class="media-info"><div class="media-label">Video</div><div class="media-title">Galline Filiera 01</div><div class="media-format">Formato: Verticale<br>Uso: Reel / Stories</div><p style="font-size:0.75rem; color:var(--marrone-terra); font-style:italic; margin-top:5px;">Nota: Asset dimostrativo</p></div>
+                    </div>
+                    <div class="media-card">
+                        <video class="media-img" controls preload="metadata"><source src="../assets/videos/ricetta-video-food-professionale-verticale-01.mp4" type="video/mp4"></video>
+                        <div class="media-info"><div class="media-label">Video</div><div class="media-title">Ricetta Food 01</div><div class="media-format">Formato: Verticale<br>Uso: Reel / Stories</div><p style="font-size:0.75rem; color:var(--marrone-terra); font-style:italic; margin-top:5px;">Nota: Asset dimostrativo</p></div>
+                    </div>
+                    <div class="media-card">
+                        <video class="media-img" controls preload="metadata"><source src="../assets/videos/ricetta-video-food-professionale-verticale-02.mp4" type="video/mp4"></video>
+                        <div class="media-info"><div class="media-label">Video</div><div class="media-title">Ricetta Food 02</div><div class="media-format">Formato: Verticale<br>Uso: Reel / Stories</div><p style="font-size:0.75rem; color:var(--marrone-terra); font-style:italic; margin-top:5px;">Nota: Asset dimostrativo</p></div>
+                    </div>
+                    <div class="media-card">
+                        <video class="media-img" controls preload="metadata"><source src="../assets/videos/spot-verticale-filiera-aia-pura-bio.mp4" type="video/mp4"></video>
+                        <div class="media-info"><div class="media-label">Video</div><div class="media-title">Spot Filiera</div><div class="media-format">Formato: Verticale<br>Uso: Reel / Stories</div><p style="font-size:0.75rem; color:var(--marrone-terra); font-style:italic; margin-top:5px;">Nota: Asset dimostrativo</p></div>
+                    </div>
+                    <div class="media-card">
+                        <video class="media-img" controls preload="metadata"><source src="../assets/videos/video-verticale-filiera-avicola-01.mp4" type="video/mp4"></video>
+                        <div class="media-info"><div class="media-label">Video</div><div class="media-title">Filiera Avicola 01</div><div class="media-format">Formato: Verticale<br>Uso: Reel / Stories</div><p style="font-size:0.75rem; color:var(--marrone-terra); font-style:italic; margin-top:5px;">Nota: Asset dimostrativo</p></div>
+                    </div>
+                    <div class="media-card">
+                        <video class="media-img" controls preload="metadata"><source src="../assets/videos/video-verticale-filiera-avicola-02.mp4" type="video/mp4"></video>
+                        <div class="media-info"><div class="media-label">Video</div><div class="media-title">Filiera Avicola 02</div><div class="media-format">Formato: Verticale<br>Uso: Reel / Stories</div><p style="font-size:0.75rem; color:var(--marrone-terra); font-style:italic; margin-top:5px;">Nota: Asset dimostrativo</p></div>
+                    </div>
+                    <div class="media-card">
+                        <video class="media-img" controls preload="metadata"><source src="../assets/videos/video-verticale-galline-al-pascolo-01.mp4" type="video/mp4"></video>
+                        <div class="media-info"><div class="media-label">Video</div><div class="media-title">Galline Pascolo</div><div class="media-format">Formato: Verticale<br>Uso: Reel / Stories</div><p style="font-size:0.75rem; color:var(--marrone-terra); font-style:italic; margin-top:5px;">Nota: Asset dimostrativo</p></div>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- 6. Direzioni visive -->
-        <section id="direzioni-visive">
-            <h2 class="section-title">Direzioni Visive</h2>
-            <div class="cards-grid">
-                <div class="visual-card">
-                    <img src="../assets/images/territorio-pugliese-storytelling.png" alt="Filiera pugliese">
-                    <div class="content">
-                        <h3>Filiera pugliese</h3>
-                        <p>Il territorio come garanzia di autenticità e radici forti.</p>
+            <!-- Video orizzontali -->
+            <div class="carousel-wrapper">
+                <h4>Video orizzontali</h4>
+                <div class="slider-container">
+                    <div class="media-card">
+                        <video class="media-img" controls preload="metadata"><source src="../assets/videos/galline-video-orizzontale-filiera-avicola-04.mp4" type="video/mp4"></video>
+                        <div class="media-info"><div class="media-label">Video</div><div class="media-title">Galline Filiera 04</div><div class="media-format">Formato: Orizzontale<br>Uso: Sito / YouTube</div><p style="font-size:0.75rem; color:var(--marrone-terra); font-style:italic; margin-top:5px;">Nota: Asset dimostrativo</p></div>
                     </div>
-                </div>
-                <div class="visual-card">
-                    <img src="../assets/images/laboratorio-food-aia-pura-bio-orizzontale.png" alt="Uova biologiche e laboratori">
-                    <div class="content">
-                        <h3>Uova bio e laboratori</h3>
-                        <p>Il prodotto inserito nel contesto produttivo artigianale.</p>
+                    <div class="media-card">
+                        <video class="media-img" controls preload="metadata"><source src="../assets/videos/mani-e-terra-video-orizzontale-filiera-avicola-01.mp4" type="video/mp4"></video>
+                        <div class="media-info"><div class="media-label">Video</div><div class="media-title">Mani e Terra 01</div><div class="media-format">Formato: Orizzontale<br>Uso: Sito / YouTube</div><p style="font-size:0.75rem; color:var(--marrone-terra); font-style:italic; margin-top:5px;">Nota: Asset dimostrativo</p></div>
                     </div>
-                </div>
-                <div class="visual-card">
-                    <img src="../assets/images/pollo-biologico-ristorazione.png" alt="Carni avicole e ristorazione">
-                    <div class="content">
-                        <h3>Carni avicole e ristorazione</h3>
-                        <p>Qualità superiore dedicata agli chef e professionisti.</p>
+                    <div class="media-card">
+                        <video class="media-img" controls preload="metadata"><source src="../assets/videos/video-orizzontale-filiera-avicola-01.mp4" type="video/mp4"></video>
+                        <div class="media-info"><div class="media-label">Video</div><div class="media-title">Filiera Avicola 01</div><div class="media-format">Formato: Orizzontale<br>Uso: Sito / YouTube</div><p style="font-size:0.75rem; color:var(--marrone-terra); font-style:italic; margin-top:5px;">Nota: Asset dimostrativo</p></div>
                     </div>
-                </div>
-                <div class="visual-card">
-                    <img src="../assets/images/packaging-qr-code-filiera.png" alt="Packaging QR">
-                    <div class="content">
-                        <h3>Packaging QR e tracciabilità</h3>
-                        <p>Il phygital che crea fiducia istantanea.</p>
+                    <div class="media-card">
+                        <video class="media-img" controls preload="metadata"><source src="../assets/videos/video-orizzontale-filiera-avicola-03.mp4" type="video/mp4"></video>
+                        <div class="media-info"><div class="media-label">Video</div><div class="media-title">Filiera Avicola 03</div><div class="media-format">Formato: Orizzontale<br>Uso: Sito / YouTube</div><p style="font-size:0.75rem; color:var(--marrone-terra); font-style:italic; margin-top:5px;">Nota: Asset dimostrativo</p></div>
                     </div>
-                </div>
-                <div class="visual-card">
-                    <img src="../assets/images/bianca-assistente-virtuale.png" alt="Bianca AI">
-                    <div class="content">
-                        <h3>Bianca AI assistant</h3>
-                        <p>L'innovazione al servizio del cliente B2B.</p>
-                    </div>
-                </div>
-                <div class="visual-card">
-                    <img src="../assets/images/ricetta-pollo-bio-al-forno.png" alt="Territorio e ricette">
-                    <div class="content">
-                        <h3>Territorio e applicazioni</h3>
-                        <p>Valorizzazione del prodotto nelle ricette professionali.</p>
+                    <div class="media-card">
+                        <video class="media-img" controls preload="metadata"><source src="../assets/videos/video-vorizzontale-filiera-avicola-02.mp4" type="video/mp4"></video>
+                        <div class="media-info"><div class="media-label">Video</div><div class="media-title">Filiera Avicola 02</div><div class="media-format">Formato: Orizzontale<br>Uso: Sito / YouTube</div><p style="font-size:0.75rem; color:var(--marrone-terra); font-style:italic; margin-top:5px;">Nota: Asset dimostrativo</p></div>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- 7. Prototipo Instagram con smartphone & 8. Feed 3x3 -->
-        <section id="instagram-mockup" class="bg-white" style="padding: 60px 20px; border-radius: 12px; margin-bottom: 80px;">
-            <h2 class="section-title">Prototipo Profilo Instagram</h2>
-            <div class="important-note" style="max-width: 600px; margin: 0 auto 40px; text-align: center;">
-                Numeri e contenuti del profilo sono mockup grafici non reali.
+            <!-- Video storytelling -->
+            <div class="carousel-wrapper">
+                <h4>Video storytelling</h4>
+                <div class="slider-container">
+                    <div class="media-card">
+                        <video class="media-img" controls preload="metadata"><source src="../assets/videos/spot-orizzontale-aia-pura-bio-01.mp4" type="video/mp4"></video>
+                        <div class="media-info"><div class="media-label">Video</div><div class="media-title">Spot Aia Pura Bio 01</div><div class="media-format">Formato: Misto<br>Uso: Campagne</div><p style="font-size:0.75rem; color:var(--marrone-terra); font-style:italic; margin-top:5px;">Nota: Prototipo</p></div>
+                    </div>
+                    <div class="media-card">
+                        <video class="media-img" controls preload="metadata"><source src="../assets/videos/spot-orizzontale-aia-pura-bio-02.mp4" type="video/mp4"></video>
+                        <div class="media-info"><div class="media-label">Video</div><div class="media-title">Spot Aia Pura Bio 02</div><div class="media-format">Formato: Misto<br>Uso: Campagne</div><p style="font-size:0.75rem; color:var(--marrone-terra); font-style:italic; margin-top:5px;">Nota: Prototipo</p></div>
+                    </div>
+                    <div class="media-card">
+                        <video class="media-img" controls preload="metadata"><source src="../assets/videos/spot-orizzontale-aia-pura-bio-03.mp4" type="video/mp4"></video>
+                        <div class="media-info"><div class="media-label">Video</div><div class="media-title">Spot Aia Pura Bio 03</div><div class="media-format">Formato: Misto<br>Uso: Campagne</div><p style="font-size:0.75rem; color:var(--marrone-terra); font-style:italic; margin-top:5px;">Nota: Prototipo</p></div>
+                    </div>
+                    <div class="media-card">
+                        <video class="media-img" controls preload="metadata"><source src="../assets/videos/video-galline-al-pascolo-01.mp4" type="video/mp4"></video>
+                        <div class="media-info"><div class="media-label">Video</div><div class="media-title">Galline Pascolo</div><div class="media-format">Formato: Misto<br>Uso: Storytelling</div><p style="font-size:0.75rem; color:var(--marrone-terra); font-style:italic; margin-top:5px;">Nota: Asset dimostrativo</p></div>
+                    </div>
+                    <div class="media-card">
+                        <video class="media-img" controls preload="metadata"><source src="../assets/videos/video-tavola-rustica-food-01.mp4" type="video/mp4"></video>
+                        <div class="media-info"><div class="media-label">Video</div><div class="media-title">Tavola Rustica</div><div class="media-format">Formato: Misto<br>Uso: Storytelling</div><p style="font-size:0.75rem; color:var(--marrone-terra); font-style:italic; margin-top:5px;">Nota: Asset dimostrativo</p></div>
+                    </div>
+                    <div class="media-card">
+                        <video class="media-img" controls preload="metadata"><source src="../assets/videos/rustic-table-setting-202604061322.mp4" type="video/mp4"></video>
+                        <div class="media-info"><div class="media-label">Video</div><div class="media-title">Rustic Setting</div><div class="media-format">Formato: Misto<br>Uso: Storytelling</div><p style="font-size:0.75rem; color:var(--marrone-terra); font-style:italic; margin-top:5px;">Nota: Asset dimostrativo</p></div>
+                    </div>
+                </div>
             </div>
 
-            <div class="ig-container">
-                <div class="phone-mockup">
-                    <div class="phone-notch"></div>
+            <!-- Video prodotto -->
+            <div class="carousel-wrapper">
+                <h4>Video prodotto</h4>
+                <div class="slider-container">
+                    <div class="media-card">
+                        <video class="media-img" controls preload="metadata"><source src="../assets/videos/ricetta-video-food-professionale-orizzontale-03.mp4" type="video/mp4"></video>
+                        <div class="media-info"><div class="media-label">Video</div><div class="media-title">Ricetta Professionale 03</div><div class="media-format">Formato: Misto<br>Uso: Prodotto B2B</div><p style="font-size:0.75rem; color:var(--marrone-terra); font-style:italic; margin-top:5px;">Nota: Asset dimostrativo</p></div>
+                    </div>
+                    <div class="media-card">
+                        <video class="media-img" controls preload="metadata"><source src="../assets/videos/ricetta-video-food-professionale-orizzontale-04.mp4" type="video/mp4"></video>
+                        <div class="media-info"><div class="media-label">Video</div><div class="media-title">Ricetta Professionale 04</div><div class="media-format">Formato: Misto<br>Uso: Prodotto B2B</div><p style="font-size:0.75rem; color:var(--marrone-terra); font-style:italic; margin-top:5px;">Nota: Asset dimostrativo</p></div>
+                    </div>
+                    <div class="media-card">
+                        <video class="media-img" controls preload="metadata"><source src="../assets/videos/ricetta-video-food-professionale-orizzontale-05.mp4" type="video/mp4"></video>
+                        <div class="media-info"><div class="media-label">Video</div><div class="media-title">Ricetta Professionale 05</div><div class="media-format">Formato: Misto<br>Uso: Prodotto B2B</div><p style="font-size:0.75rem; color:var(--marrone-terra); font-style:italic; margin-top:5px;">Nota: Asset dimostrativo</p></div>
+                    </div>
+                    <div class="media-card">
+                        <video class="media-img" controls preload="metadata"><source src="../assets/videos/ricetta-video-food-professionale-orizzontale-06.mp4" type="video/mp4"></video>
+                        <div class="media-info"><div class="media-label">Video</div><div class="media-title">Ricetta Professionale 06</div><div class="media-format">Formato: Misto<br>Uso: Prodotto B2B</div><p style="font-size:0.75rem; color:var(--marrone-terra); font-style:italic; margin-top:5px;">Nota: Asset dimostrativo</p></div>
+                    </div>
+                    <div class="media-card">
+                        <video class="media-img" controls preload="metadata"><source src="../assets/videos/ricetta-video-uova-farina-01.mp4" type="video/mp4"></video>
+                        <div class="media-info"><div class="media-label">Video</div><div class="media-title">Uova e Farina 01</div><div class="media-format">Formato: Misto<br>Uso: Prodotto B2B</div><p style="font-size:0.75rem; color:var(--marrone-terra); font-style:italic; margin-top:5px;">Nota: Asset dimostrativo</p></div>
+                    </div>
+                    <div class="media-card">
+                        <video class="media-img" controls preload="metadata"><source src="../assets/videos/ricetta-video-uova-farina-02.mp4" type="video/mp4"></video>
+                        <div class="media-info"><div class="media-label">Video</div><div class="media-title">Uova e Farina 02</div><div class="media-format">Formato: Misto<br>Uso: Prodotto B2B</div><p style="font-size:0.75rem; color:var(--marrone-terra); font-style:italic; margin-top:5px;">Nota: Asset dimostrativo</p></div>
+                    </div>
+                    <div class="media-card">
+                        <video class="media-img" controls preload="metadata"><source src="../assets/videos/video-uova-biologiche-cestino-01.mp4" type="video/mp4"></video>
+                        <div class="media-info"><div class="media-label">Video</div><div class="media-title">Cestino Uova Bio 01</div><div class="media-format">Formato: Misto<br>Uso: Prodotto</div><p style="font-size:0.75rem; color:var(--marrone-terra); font-style:italic; margin-top:5px;">Nota: Asset dimostrativo</p></div>
+                    </div>
+                    <div class="media-card">
+                        <video class="media-img" controls preload="metadata"><source src="../assets/videos/video-uova-biologiche-cestino-02.mp4" type="video/mp4"></video>
+                        <div class="media-info"><div class="media-label">Video</div><div class="media-title">Cestino Uova Bio 02</div><div class="media-format">Formato: Misto<br>Uso: Prodotto</div><p style="font-size:0.75rem; color:var(--marrone-terra); font-style:italic; margin-top:5px;">Nota: Asset dimostrativo</p></div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- STEP 5: SEI DIREZIONI VISIVE -->
+    <section class="bg-crema">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">03.</div>
+                <h2>Sei direzioni visive</h2>
+                <div class="section-desc">Sei territori fotografici coerenti, ciascuno con una funzione narrativa precisa. Insieme costruiscono il racconto visivo di Aia Pura Bio.</div>
+            </div>
+
+            <div class="grid-3">
+                <div class="dir-card">
+                    <img src="../assets/images/packaging-premium-prodotti.png" class="dir-bg" alt="Packaging">
+                    <div class="dir-overlay"></div>
+                    <div class="dir-content">
+                        <span class="dir-tag">Packaging premium</span>
+                        <h4>Estetica del prodotto</h4>
+                        <p style="font-size: 0.85rem;"><strong>Funzione:</strong> MOFU / Vetrina<br><strong>Emozione:</strong> Desiderio di qualità<br><strong>Colore:</strong> Crema / Verde<br><strong>Asset:</strong> Uova e carni in pack</p>
+                    </div>
+                </div>
+                
+                <div class="dir-card">
+                    <img src="../assets/images/territorio-pugliese-storytelling.png" class="dir-bg" alt="Territorio">
+                    <div class="dir-overlay"></div>
+                    <div class="dir-content">
+                        <span class="dir-tag">Filiera / Territorio</span>
+                        <h4>Radici e Natura</h4>
+                        <p style="font-size: 0.85rem;"><strong>Funzione:</strong> TOFU / Awareness<br><strong>Emozione:</strong> Autenticità<br><strong>Colore:</strong> Verde Bosco<br><strong>Asset:</strong> Campi, allevamento</p>
+                    </div>
+                </div>
+
+                <div class="dir-card">
+                    <img src="../assets/images/catalogo-prodotti-completo.png" class="dir-bg" alt="Prodotto B2B">
+                    <div class="dir-overlay"></div>
+                    <div class="dir-content">
+                        <span class="dir-tag">Prodotto B2B</span>
+                        <h4>L'offerta aziendale</h4>
+                        <p style="font-size: 0.85rem;"><strong>Funzione:</strong> BOFU / Conversion<br><strong>Emozione:</strong> Affidabilità tecnica<br><strong>Colore:</strong> Sfondi bianchi/neutri<br><strong>Asset:</strong> Ovoprodotti professionali</p>
+                    </div>
+                </div>
+
+                <div class="dir-card">
+                    <img src="../assets/images/laboratorio-food-aia-pura-bio-orizzontale.png" class="dir-bg" alt="Laboratorio">
+                    <div class="dir-overlay"></div>
+                    <div class="dir-content">
+                        <span class="dir-tag">Cucina / Laboratorio</span>
+                        <h4>Applicazione Pratica</h4>
+                        <p style="font-size: 0.85rem;"><strong>Funzione:</strong> MOFU / Ispirazione<br><strong>Emozione:</strong> Artigianalità<br><strong>Colore:</strong> Toni caldi (oro/farina)<br><strong>Asset:</strong> Chef, impasti, ricette</p>
+                    </div>
+                </div>
+
+                <div class="dir-card">
+                    <img src="../assets/images/bianca-assistente-virtuale.png" class="dir-bg" alt="Bianca AI">
+                    <div class="dir-overlay" style="background: linear-gradient(to top, rgba(197, 151, 59, 0.95), transparent);"></div>
+                    <div class="dir-content">
+                        <span class="dir-tag" style="background: var(--verde-bosco);">Bianca AI / QR</span>
+                        <h4>Il Touchpoint digitale</h4>
+                        <p style="font-size: 0.85rem;"><strong>Funzione:</strong> Engagement / Trust<br><strong>Emozione:</strong> Innovazione rassicurante<br><strong>Colore:</strong> Verde / Oro<br><strong>Asset:</strong> Avatar, smartphone, QR</p>
+                    </div>
+                </div>
+
+                <div class="dir-card">
+                    <img src="../assets/images/hero-copertina-aia-pura-bio.png" class="dir-bg" alt="Fiducia">
+                    <div class="dir-overlay"></div>
+                    <div class="dir-content">
+                        <span class="dir-tag">Identità / Relazione</span>
+                        <h4>Manifesto del Brand</h4>
+                        <p style="font-size: 0.85rem;"><strong>Funzione:</strong> TOFU / Brand Identity<br><strong>Emozione:</strong> Fiducia totale<br><strong>Colore:</strong> Verde Bosco dominante<br><strong>Asset:</strong> Grafiche manifesto</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STEP 6: SPOT PUBBLICITARI -->
+    <section class="bg-white">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">04.</div>
+                <h2>Spot pubblicitari e storytelling</h2>
+                <div class="section-desc">Questa sezione mostra come il caso Aia Pura Bio può essere trasformato in narrazione audiovisiva per campagne social, sito, presentazione e funnel B2B.</div>
+            </div>
+
+            <!-- Video Hero Orizzontale -->
+            <div style="position: relative;">
+                <video src="../assets/videos/spot-orizzontale-aia-pura-bio-01.mp4" class="spot-hero" style="width: 100%; border-radius: 20px; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 40px; box-shadow: var(--shadow-soft); cursor: pointer;" autoplay loop muted playsinline poster="../assets/images/cover-spot-orizzontale.png" onmouseover="this.play()" onclick="if(this.paused){this.play();}else{this.pause();}"></video>
+                <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); background:rgba(255,255,255,0.9); padding:20px 40px; border-radius:50px; color:var(--verde-bosco); font-weight:bold; font-family:'Montserrat',sans-serif; font-size:1.5rem; box-shadow:var(--shadow-hover); pointer-events: none;"><span style="color:var(--oro-caldo);">▶</span> PLAY MANIFESTO</div>
+            </div>
+
+            <div class="grid-3">
+                <div class="spot-box">
+                    <span style="font-family:'Montserrat',sans-serif; font-size:0.75rem; color:var(--oro-caldo); font-weight:bold;">SPOT 1</span>
+                    <h4>Manifesto</h4>
+                    <p><strong>Durata:</strong> 30 secondi<br><strong>Obiettivo:</strong> Presentare il valore della filiera.<br><strong>Target:</strong> B2B generico</p>
+                    <div class="sb-line"><strong>0-5s:</strong> Hook visivo su uovo perfetto. "Sai da dove arriva?"</div>
+                    <div class="sb-line"><strong>5-12s:</strong> Drone Puglia e galline all'aperto.</div>
+                    <div class="sb-line"><strong>12-25s:</strong> Mani di chef. QR code.</div>
+                    <p><strong>Voice Over:</strong> "La qualità è una traccia che puoi seguire..."</p>
+                    <p><strong>Copy overlay:</strong> Trasparenza totale.</p>
+                    <p><strong>CTA:</strong> Scopri la filiera</p>
+                    <div class="prompt-box">Prompt: Cinematic 4k drone shot of apulian olive grove, transition to chef...</div>
+                </div>
+
+                <div class="spot-box">
+                    <span style="font-family:'Montserrat',sans-serif; font-size:0.75rem; color:var(--oro-caldo); font-weight:bold;">SPOT 2</span>
+                    <h4>B2B Food</h4>
+                    <p><strong>Durata:</strong> 20 secondi<br><strong>Obiettivo:</strong> Parlare a pasticcerie e ristoranti.<br><strong>Target:</strong> Chef / Laboratori</p>
+                    <div class="sb-line"><strong>0-10s:</strong> Uova bio aperte in planetaria. Impasto dorato.</div>
+                    <div class="sb-line"><strong>10-20s:</strong> Appare la copertina del catalogo digitale.</div>
+                    <p><strong>Voice Over:</strong> "La base dei tuoi capolavori professionali."</p>
+                    <p><strong>Copy overlay:</strong> Qualità garantita B2B.</p>
+                    <p><strong>CTA:</strong> Consulta il catalogo B2B</p>
+                    <div class="prompt-box">Prompt: Slow motion egg cracking into flour, professional baker hands...</div>
+                </div>
+
+                <div class="spot-box">
+                    <span style="font-family:'Montserrat',sans-serif; font-size:0.75rem; color:var(--oro-caldo); font-weight:bold;">SPOT 3</span>
+                    <h4>Bianca AI</h4>
+                    <p><strong>Durata:</strong> 15 secondi<br><strong>Obiettivo:</strong> Presentare l'assistente virtuale.<br><strong>Target:</strong> Nuovi lead B2B</p>
+                    <div class="sb-line"><strong>0-7s:</strong> Ristoratore scansiona packaging.</div>
+                    <div class="sb-line"><strong>7-15s:</strong> Chat Bianca che invia un PDF (catalogo).</div>
+                    <p><strong>Voice Over:</strong> "Una filiera intera in tasca, h24."</p>
+                    <p><strong>Copy overlay:</strong> Chiedi alla filiera.</p>
+                    <p><strong>CTA:</strong> Parla con Bianca</p>
+                    <div class="prompt-box">Prompt: Over shoulder shot, chef looking at smartphone screen displaying an elegant chat...</div>
+                </div>
+            </div>
+            <div class="nota-metodologica mt-4">Prototipo storytelling, non spot realmente prodotto.</div>
+        </div>
+    </section>
+
+    <!-- STEP 7: FEED INSTAGRAM -->
+    <section id="feed-preview" class="bg-crema">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">05.</div>
+                <h2>Feed Instagram: post, reels e stories</h2>
+                <div class="section-desc">Questa sezione organizza i contenuti del profilo Instagram in tre livelli: post statici, reel narrativi e stories interattive.</div>
+            </div>
+
+            <div class="grid-2 align-items-start">
+                <!-- MOCKUP IG PROFILO -->
+                <div class="ig-phone">
                     <div class="ig-header">
-                        aiapurabio
+                        <div class="ig-header-name">@aiapurabio</div>
                     </div>
-                    <div class="ig-profile-top">
-                        <div class="ig-avatar">
-                            <img src="../assets/images/logo-aia-pura-bio.png" alt="Logo">
-                        </div>
-                        <div class="ig-stats">
-                            <div><span>12</span><small>post</small></div>
-                            <div><span>1.2K</span><small>follower</small></div>
-                            <div><span>150</span><small>seguiti</small></div>
-                        </div>
-                    </div>
-                    <div class="ig-bio">
-                        <strong>Aia Pura Bio</strong>
-                        Filiera avicola biologica B2B<br>
-                        Puglia · Brindisi · territorio<br>
-                        Catalogo, campioni, Bianca AI<br>
-                        <em>Studio di fattibilità strategica</em><br>
-                        <a href="#">linktr.ee/aiapurabio</a>
-                    </div>
-                    <div class="ig-buttons">
-                        <div class="ig-btn">Segui già</div>
-                        <div class="ig-btn">Messaggio</div>
-                        <div class="ig-btn">Contatti</div>
-                    </div>
-                    <div class="ig-highlights">
-                        <div class="ig-highlight">
-                            <div class="ig-highlight-img"><img src="../assets/images/filiera-allevamento-collage.png" alt="Filiera"></div>
-                            <span>Filiera</span>
-                        </div>
-                        <div class="ig-highlight">
-                            <div class="ig-highlight-img"><img src="../assets/images/uova-bio-prodotti-catalogo-b2b.png" alt="Prodotti"></div>
-                            <span>Prodotti</span>
-                        </div>
-                        <div class="ig-highlight">
-                            <div class="ig-highlight-img"><img src="../assets/images/territorio-pugliese-storytelling.png" alt="Puglia"></div>
-                            <span>Puglia</span>
-                        </div>
-                        <div class="ig-highlight">
-                            <div class="ig-highlight-img"><img src="../assets/images/packaging-qr-code-filiera.png" alt="QR"></div>
-                            <span>QR</span>
-                        </div>
-                    </div>
-                    <div class="ig-tabs">
-                        <div class="ig-tab active">▦</div>
-                        <div class="ig-tab">▶</div>
-                        <div class="ig-tab">▤</div>
-                    </div>
+                    <img src="../assets/images/logo-aiapurabio-icona-rotondo.png" style="width:70px; display:block; margin: 20px auto 10px; border-radius: 50%; border: 2px solid #eee;">
+                    <p style="font-size:0.85rem; text-align:center; padding:0 20px; margin-bottom:20px; color:var(--grigio-caldo);">La filiera che puoi conoscere.<br>Il biologico che puoi verificare.</p>
                     
-                    <!-- 8. Feed Instagram 3x3 -->
-                    <div class="ig-grid">
-                        <div class="ig-grid-item"><img src="../assets/images/hero-copertina-aia-pura-bio.png" alt="Post 1"></div>
-                        <div class="ig-grid-item"><img src="../assets/images/gallina-biologica-prodotto.png" alt="Post 2"></div>
-                        <div class="ig-grid-item"><img src="../assets/images/territorio-pugliese-storytelling.png" alt="Post 3"></div>
+                    <div style="display:flex; justify-content:center; gap:20px; margin-bottom:20px; border-bottom:1px solid #eee; padding-bottom:15px;">
+                        <div style="text-align:center;"><strong style="color:#111;">12</strong><br><span style="font-size:0.7rem;">Post</span></div>
+                        <div style="text-align:center;"><strong style="color:#111;">1.2M</strong><br><span style="font-size:0.7rem;">Follower</span></div>
+                        <div style="text-align:center;"><strong style="color:#111;">18</strong><br><span style="font-size:0.7rem;">Seguiti</span></div>
+                    </div>
+
+                    <div style="display:flex; justify-content:space-between; margin-bottom:20px; padding:0 15px; overflow-x:auto; gap:10px;">
+                        <div style="text-align:center; min-width:60px;">
+                            <img src="../assets/images/territorio-pugliese-storytelling.png" style="width:55px; height:55px; border-radius:50%; object-fit:cover; border:2px solid var(--crema-naturale); outline:2px solid var(--oro-caldo); padding:2px;">
+                            <span style="font-size:0.65rem; display:block; margin-top:5px; color:#111; font-family:'Montserrat',sans-serif;">Filiera</span>
+                        </div>
+                        <div style="text-align:center; min-width:60px;">
+                            <img src="../assets/images/uova-10-pezzi-packaging-prodotto.png" style="width:55px; height:55px; border-radius:50%; object-fit:cover; border:2px solid var(--crema-naturale); outline:2px solid var(--verde-oliva); padding:2px;">
+                            <span style="font-size:0.65rem; display:block; margin-top:5px; color:#111; font-family:'Montserrat',sans-serif;">Prodotti</span>
+                        </div>
+                        <div style="text-align:center; min-width:60px;">
+                            <img src="../assets/images/territorio-puglia-aia-pura-bio.png" style="width:55px; height:55px; border-radius:50%; object-fit:cover; border:2px solid var(--crema-naturale); outline:2px solid var(--oro-caldo); padding:2px;">
+                            <span style="font-size:0.65rem; display:block; margin-top:5px; color:#111; font-family:'Montserrat',sans-serif;">Territorio</span>
+                        </div>
+                        <div style="text-align:center; min-width:60px;">
+                            <img src="../assets/images/catalogo-prodotti-completo.png" style="width:55px; height:55px; border-radius:50%; object-fit:cover; border:2px solid var(--crema-naturale); outline:2px solid var(--verde-oliva); padding:2px;">
+                            <span style="font-size:0.65rem; display:block; margin-top:5px; color:#111; font-family:'Montserrat',sans-serif;">Catalogo</span>
+                        </div>
+                        <div style="text-align:center; min-width:60px;">
+                            <img src="../assets/images/bianca-assistente-virtuale.png" style="width:55px; height:55px; border-radius:50%; object-fit:cover; border:2px solid var(--crema-naturale); outline:2px solid var(--oro-caldo); padding:2px;">
+                            <span style="font-size:0.65rem; display:block; margin-top:5px; color:#111; font-family:'Montserrat',sans-serif;">Bianca</span>
+                        </div>
+                        <div style="text-align:center; min-width:60px;">
+                            <img src="../assets/images/packaging-qr-code-filiera.png" style="width:55px; height:55px; border-radius:50%; object-fit:cover; border:2px solid var(--crema-naturale); outline:2px solid var(--verde-oliva); padding:2px;">
+                            <span style="font-size:0.65rem; display:block; margin-top:5px; color:#111; font-family:'Montserrat',sans-serif;">QR</span>
+                        </div>
+                    </div>
+
+                    <div class="ig-grid-3x3">
+                        <div class="ig-item"><img src="../assets/images/hero-copertina-aia-pura-bio.png"></div>
+                        <div class="ig-item"><img src="../assets/images/gallina-biologica-prodotto.png"></div>
+                        <div class="ig-item"><img src="../assets/images/territorio-pugliese-storytelling.png"></div>
                         
-                        <div class="ig-grid-item"><img src="../assets/images/uova-10-pezzi-packaging-prodotto.png" alt="Post 4"></div>
-                        <div class="ig-grid-item"><img src="../assets/images/benessere-animale-filiera-01.png" alt="Post 5"></div>
-                        <div class="ig-grid-item"><img src="../assets/images/packaging-qr-code-filiera.png" alt="Post 6"></div>
+                        <div class="ig-item"><img src="../assets/images/uova-10-pezzi-packaging-prodotto.png"></div>
+                        <div class="ig-item"><img src="../assets/images/benessere-animale-filiera-01.png"></div>
+                        <div class="ig-item"><img src="../assets/images/packaging-qr-code-filiera.png"></div>
                         
-                        <div class="ig-grid-item"><img src="../assets/images/bianca-assistente-virtuale.png" alt="Post 7"></div>
-                        <div class="ig-grid-item"><img src="../assets/images/laboratorio-food-aia-pura-bio-orizzontale.png" alt="Post 8"></div>
-                        <div class="ig-grid-item"><img src="../assets/images/catalogo-b2b-storytelling.png" alt="Post 9"></div>
+                        <div class="ig-item"><img src="../assets/images/bianca-assistente-virtuale.png"></div>
+                        <div class="ig-item"><img src="../assets/images/laboratorio-food-aia-pura-bio-orizzontale.png"></div>
+                        <div class="ig-item"><img src="../assets/images/catalogo-b2b-storytelling.png"></div>
+                    </div>
+                </div>
+
+                <!-- TRE BLOCCHI DX -->
+                <div class="feed-list">
+                    <h4>1. Post Feed</h4>
+                    <ul>
+                        <li><strong>Post:</strong> Manifesto del brand (Awareness)</li>
+                        <li><strong>Carosello:</strong> Perché biologico B2B (MOFU)</li>
+                        <li><strong>Prodotto:</strong> Scheda uova pasticceria (BOFU)</li>
+                        <li><strong>Tech:</strong> Packaging touchpoint (Trust)</li>
+                    </ul>
+
+                    <h4>2. Reel Formats</h4>
+                    <ul>
+                        <li><strong>Storytelling:</strong> Dietro le quinte filiera</li>
+                        <li><strong>Tutorial:</strong> Scansione QR code e chat Bianca AI</li>
+                        <li><strong>Testimonial:</strong> Applicazione chef / laboratorio</li>
+                    </ul>
+
+                    <h4>3. Stories e Highlight</h4>
+                    <ul>
+                        <li><strong>Hook quotidiano:</strong> Box domande "Sai da dove arriva?"</li>
+                        <li><strong>Educational:</strong> Sequenza su certificazione bio</li>
+                        <li><strong>Conversion:</strong> Swipe-up richiesta catalogo campioni</li>
+                    </ul>
+
+                    <div class="nota-metodologica" style="margin-top: 40px; border-left-color: var(--verde-bosco);">
+                        Nome profilo, statistiche, griglia ed evidenziate sono elementi grafici dimostrativi: follower, post e interazioni non rappresentano dati reali. Mockup di prototipo progettuale.
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Feed Post Descrizioni -->
-            <div style="margin-top: 40px;">
-                <h3 class="montserrat" style="text-align: center; margin-bottom: 20px;">Contenuti del Feed (9 post)</h3>
-                <ol style="max-width: 800px; margin: 0 auto; column-count: 2; column-gap: 40px; font-size: 0.95rem;">
-                    <li><strong>01 Manifesto</strong> — La filiera che puoi conoscere</li>
-                    <li><strong>02 Educational</strong> — Cosa significa biologico nella filiera avicola</li>
-                    <li><strong>03 Territorio</strong> — Perché Aia Pura Bio nasce in Puglia</li>
-                    <li><strong>04 Prodotto</strong> — Uova biologiche per pasticcerie e laboratori</li>
-                    <li><strong>05 Trust</strong> — La qualità non si dichiara, si dimostra</li>
-                    <li><strong>06 Packaging QR</strong> — Dal packaging al racconto della filiera</li>
-                    <li><strong>07 Bianca AI</strong> — Chiedi a Bianca: filiera, catalogo, campione</li>
-                    <li><strong>08 Applicazione</strong> — Dall’allevamento al laboratorio</li>
-                    <li><strong>09 CTA</strong> — Consulta il catalogo o richiedi un campione</li>
-                </ol>
+    <!-- STEP 8: FEED PREVIEW 3x3 -->
+    <section class="bg-white">
+        <div class="container">
+            <div class="section-header text-center" style="max-width: 600px;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Feed preview 3×3</h2>
+                <h3 style="font-size: 1.2rem; color: var(--oro-caldo); font-family: 'Montserrat', sans-serif; margin-bottom: 20px; text-transform: uppercase;">Nove contenuti, un solo racconto</h3>
+                <p style="font-size: 1rem; color: var(--grigio-caldo);">La griglia bilancia manifesto, prodotto, territorio, educational e CTA. Ogni casella ha un ruolo nel ritmo visivo del feed. Questa sezione mostra i format grafici riutilizzabili per rendere coerenti tutti i contenuti social del brand. (Visual con immagini di sfondo Aia Pura Bio).</p>
             </div>
-        </section>
 
-        <!-- 9. Template social 4:5 -->
-        <section id="template-social">
-            <h2 class="section-title">Template Social (4:5)</h2>
-            <div class="template-grid">
-                <div class="template-card"><h4>Manifesto</h4><p>La filiera che puoi conoscere.</p></div>
-                <div class="template-card" style="background-color: var(--verde-oliva);"><h4>Filiera</h4><p>Km zero, 100% Pugliese.</p></div>
-                <div class="template-card" style="background-color: var(--grigio-caldo);"><h4>Prodotto</h4><p>Uova Bio Premium</p></div>
-                <div class="template-card" style="background-color: var(--marrone-terra);"><h4>Packaging QR</h4><p>Scansiona e scopri.</p></div>
-                <div class="template-card"><h4>Bianca AI</h4><p>Chiedi a Bianca.</p></div>
-                <div class="template-card" style="background-color: var(--verde-oliva);"><h4>Territorio</h4><p>Radici forti in Puglia.</p></div>
-                <div class="template-card" style="background-color: var(--grigio-caldo);"><h4>Ricetta</h4><p>Dal pollaio al piatto.</p></div>
-                <div class="template-card" style="background-color: var(--marrone-terra);"><h4>Educational</h4><p>Cosa significa Bio?</p></div>
-                <div class="template-card" style="background-color: var(--oro-caldo); color: var(--verde-bosco);"><h4 style="color: var(--verde-bosco);">CTA</h4><p>Richiedi un campione.</p></div>
+            <div class="grid-3" style="max-width: 900px; margin: 0 auto;">
+                <div class="preview-card"><img src="../assets/images/hero-copertina-aia-pura-bio.png" class="preview-img"><div class="preview-info"><span>Formato: Post</span><p><strong>Pillar:</strong> Manifesto<br><strong>Ruolo:</strong> Ispirare fiducia</p></div></div>
+                <div class="preview-card"><img src="../assets/images/gallina-biologica-prodotto.png" class="preview-img"><div class="preview-info"><span>Formato: Carosello</span><p><strong>Pillar:</strong> Prodotto Bio<br><strong>Ruolo:</strong> Educare la mente</p></div></div>
+                <div class="preview-card"><img src="../assets/images/territorio-pugliese-storytelling.png" class="preview-img"><div class="preview-info"><span>Formato: Reel Cover</span><p><strong>Pillar:</strong> Territorio Puglia<br><strong>Ruolo:</strong> Radici e narrazione</p></div></div>
+                
+                <div class="preview-card"><img src="../assets/images/uova-10-pezzi-packaging-prodotto.png" class="preview-img"><div class="preview-info"><span>Formato: Post</span><p><strong>Pillar:</strong> Packaging B2B<br><strong>Ruolo:</strong> Mostrare l'offerta</p></div></div>
+                <div class="preview-card"><img src="../assets/images/benessere-animale-filiera-01.png" class="preview-img"><div class="preview-info"><span>Formato: Info-post</span><p><strong>Pillar:</strong> Benessere Animale<br><strong>Ruolo:</strong> Prova di filiera</p></div></div>
+                <div class="preview-card"><img src="../assets/images/packaging-qr-code-filiera.png" class="preview-img"><div class="preview-info"><span>Formato: Reel Cover</span><p><strong>Pillar:</strong> Tracciabilità QR<br><strong>Ruolo:</strong> Guidare lo scan</p></div></div>
+                
+                <div class="preview-card"><img src="../assets/images/bianca-assistente-virtuale.png" class="preview-img"><div class="preview-info"><span>Formato: Post</span><p><strong>Pillar:</strong> Bianca AI<br><strong>Ruolo:</strong> Innovazione tech</p></div></div>
+                <div class="preview-card"><img src="../assets/images/laboratorio-food-aia-pura-bio-orizzontale.png" class="preview-img" style="object-position: center left;"><div class="preview-info"><span>Formato: Post</span><p><strong>Pillar:</strong> Laboratorio Chef<br><strong>Ruolo:</strong> Applicazione MOFU</p></div></div>
+                <div class="preview-card"><img src="../assets/images/catalogo-b2b-storytelling.png" class="preview-img"><div class="preview-info"><span>Formato: CTA Post</span><p><strong>Pillar:</strong> Catalogo / Campione<br><strong>Ruolo:</strong> Lead Generation BOFU</p></div></div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- 10. Carosello Instagram -->
-        <section id="carosello" class="bg-white" style="padding: 60px 20px; border-radius: 12px; margin-bottom: 80px;">
-            <h2 class="section-title">Carosello Instagram</h2>
-            <h3 class="montserrat" style="text-align: center; margin-bottom: 30px;">Perché una filiera si deve poter verificare</h3>
-            <div class="carousel-container">
-                <div class="carousel-slide">
-                    <span>Slide 1</span>
-                    <h4>Nel food B2B la fiducia non basta dichiararla</h4>
+    <!-- STEP 9: 9 TEMPLATE INSTAGRAM -->
+    <section id="templates" class="bg-crema">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">06.</div>
+                <h2 style="font-size: 2.5rem; margin-bottom: 10px;">9 template Instagram</h2>
+                <h3 style="font-size: 1rem; color: var(--verde-oliva); font-family: 'Montserrat', sans-serif; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">Template 4:5 (adattabili 9:16)</h3>
+                <p class="section-desc">Nove tavole originali con aree logo e CTA, palette dedicata, asset, nota strategica, KPI futuro e prompt AI. I testi in grafica restano brevi, leggibili e poetici.</p>
+            </div>
+
+            <div class="template-slider">
+                <!-- TPL 1 -->
+                <div class="template-slide">
+                    <div class="tpl-visual">
+                        <img src="../assets/images/hero-copertina-aia-pura-bio.png" alt="Template">
+                        <div style="position:absolute; bottom:20px; left:20px; color:white; font-family:'Playfair Display',serif; font-size:1.8rem; line-height:1.2; text-shadow:0 2px 4px rgba(0,0,0,0.5);">La filiera<br>che puoi conoscere.</div>
+                    </div>
+                    <div class="tpl-content">
+                        <div class="tpl-num">01</div>
+                        <div class="tpl-data">
+                            <span style="font-family:'Montserrat',sans-serif; font-size:0.8rem; color:var(--oro-caldo); font-weight:bold;">POST 4:5 · MANIFESTO</span>
+                            <h4 style="font-size: 1.5rem; margin-top:5px; margin-bottom:15px;">Il manifesto della qualità</h4>
+                            <p style="font-size: 0.9rem;"><strong>Asset:</strong> Hero image scura<br><strong>CTA:</strong> Leggi in caption</p>
+                        </div>
+                        <p style="font-size:0.85rem; color:var(--marrone-terra);"><strong>Nota strategica:</strong> Funge da copertina visiva per i valori base del brand. Testo grande e leggibile.</p>
+                        <p style="font-size:0.85rem; color:var(--marrone-terra);"><strong>KPI Futuro:</strong> Impression, Condivisioni.</p>
+                        <div class="prompt-box" style="font-size:0.75rem;">Prompt: Cinematic organic farm landscape, dark green overlay...</div>
+                    </div>
                 </div>
-                <div class="carousel-slide">
-                    <span>Slide 2</span>
-                    <h4>Il territorio diventa prova narrativa</h4>
+
+                <!-- TPL 2 -->
+                <div class="template-slide">
+                    <div class="tpl-visual" style="background: var(--verde-bosco); overflow: hidden; position: relative;">
+                        <img src="../assets/images/gallina-biologica-packaging.png" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.4;">
+                        <div style="position:absolute; top:40px; left:20px; right:20px; color:var(--crema-naturale); font-family:'Lato',sans-serif; font-size:1.4rem; line-height:1.5; z-index:2; text-shadow:0 2px 4px rgba(0,0,0,0.4);">Perché scegliere un uovo biologico per il tuo laboratorio?</div>
+                        <div style="position:absolute; bottom:20px; right:20px; color:var(--oro-caldo); font-family:'Montserrat',sans-serif; font-size:0.8rem; z-index:2; font-weight:bold;">SWIPE ➔</div>
+                    </div>
+                    <div class="tpl-content">
+                        <div class="tpl-num">02</div>
+                        <div class="tpl-data">
+                            <span style="font-family:'Montserrat',sans-serif; font-size:0.8rem; color:var(--oro-caldo); font-weight:bold;">CAROSELLO 4:5 · EDU</span>
+                            <h4 style="font-size: 1.5rem; margin-top:5px; margin-bottom:15px;">Spiegare il valore</h4>
+                            <p style="font-size: 0.9rem;"><strong>Asset:</strong> Sfondo colore solido<br><strong>CTA:</strong> Swipe (➔)</p>
+                        </div>
+                        <p style="font-size:0.85rem; color:var(--marrone-terra);"><strong>Nota strategica:</strong> Carosello text-based per educare il target B2B sui vantaggi tecnici del prodotto bio.</p>
+                        <p style="font-size:0.85rem; color:var(--marrone-terra);"><strong>KPI Futuro:</strong> Salvataggi.</p>
+                    </div>
                 </div>
-                <div class="carousel-slide">
-                    <span>Slide 3</span>
-                    <h4>Il biologico richiede chiarezza</h4>
+
+                <!-- TPL 3 -->
+                <div class="template-slide">
+                    <div class="tpl-visual">
+                        <img src="../assets/images/packaging-qr-code-filiera.png" alt="Template">
+                        <div style="position:absolute; bottom:20px; left:20px; background:white; padding:10px 15px; border-radius:30px; color:var(--verde-bosco); font-family:'Montserrat',sans-serif; font-size:0.8rem; font-weight:bold;">Scansiona e Scopri</div>
+                    </div>
+                    <div class="tpl-content">
+                        <div class="tpl-num">03</div>
+                        <div class="tpl-data">
+                            <span style="font-family:'Montserrat',sans-serif; font-size:0.8rem; color:var(--oro-caldo); font-weight:bold;">POST 4:5 · TECH</span>
+                            <h4 style="font-size: 1.5rem; margin-top:5px; margin-bottom:15px;">Inquadra la trasparenza</h4>
+                            <p style="font-size: 0.9rem;"><strong>Asset:</strong> Foto prodotto con QR<br><strong>CTA:</strong> Call out grafica</p>
+                        </div>
+                        <p style="font-size:0.85rem; color:var(--marrone-terra);"><strong>Nota strategica:</strong> Promuove l'uso del QR code per attivare Bianca AI.</p>
+                        <p style="font-size:0.85rem; color:var(--marrone-terra);"><strong>KPI Futuro:</strong> Scansioni misurate via analytics.</p>
+                    </div>
                 </div>
-                <div class="carousel-slide">
-                    <span>Slide 4</span>
-                    <h4>Il packaging diventa media</h4>
+
+                <!-- TPL 4 -->
+                <div class="template-slide">
+                    <div class="tpl-visual">
+                        <img src="../assets/images/territorio-pugliese-storytelling.png" alt="Template">
+                        <div style="position:absolute; top:20px; right:20px; background:rgba(255,255,255,0.9); padding:5px 15px; border-radius:20px; font-family:'Montserrat',sans-serif; font-size:0.75rem; font-weight:bold;">REEL</div>
+                    </div>
+                    <div class="tpl-content">
+                        <div class="tpl-num">04</div>
+                        <div class="tpl-data">
+                            <span style="font-family:'Montserrat',sans-serif; font-size:0.8rem; color:var(--oro-caldo); font-weight:bold;">COVER REEL 4:5</span>
+                            <h4 style="font-size: 1.5rem; margin-top:5px; margin-bottom:15px;">Le nostre radici</h4>
+                            <p style="font-size: 0.9rem;"><strong>Asset:</strong> Paesaggio Puglia<br><strong>CTA:</strong> Guarda il video</p>
+                        </div>
+                        <p style="font-size:0.85rem; color:var(--marrone-terra);"><strong>Nota strategica:</strong> Copertina pulita per i reel di storytelling territoriale.</p>
+                        <p style="font-size:0.85rem; color:var(--marrone-terra);"><strong>KPI Futuro:</strong> Visualizzazioni e retention.</p>
+                    </div>
                 </div>
-                <div class="carousel-slide">
-                    <span>Slide 5</span>
-                    <h4>QR code e Bianca aprono il dialogo</h4>
+
+                <!-- TPL 5 -->
+                <div class="template-slide">
+                    <div class="tpl-visual">
+                        <img src="../assets/images/uova-10-pezzi-packaging-prodotto.png" alt="Template">
+                    </div>
+                    <div class="tpl-content">
+                        <div class="tpl-num">05</div>
+                        <div class="tpl-data">
+                            <span style="font-family:'Montserrat',sans-serif; font-size:0.8rem; color:var(--oro-caldo); font-weight:bold;">POST 4:5 · B2B</span>
+                            <h4 style="font-size: 1.5rem; margin-top:5px; margin-bottom:15px;">L'offerta dedicata</h4>
+                            <p style="font-size: 0.9rem;"><strong>Asset:</strong> Pack uova premium<br><strong>CTA:</strong> Dettagli nel testo</p>
+                        </div>
+                        <p style="font-size:0.85rem; color:var(--marrone-terra);"><strong>Nota strategica:</strong> Mostra il prodotto in contesto d'uso. Illuminazione premium.</p>
+                        <p style="font-size:0.85rem; color:var(--marrone-terra);"><strong>KPI Futuro:</strong> Interazioni profilate (B2B).</p>
+                    </div>
                 </div>
-                <div class="carousel-slide">
-                    <span>Slide 6</span>
-                    <h4>Consulta il catalogo o richiedi un campione</h4>
+
+                <!-- TPL 6 -->
+                <div class="template-slide">
+                    <div class="tpl-visual">
+                        <img src="../assets/images/benessere-animale-filiera-01.png" alt="Template">
+                        <div style="position:absolute; bottom:0; left:0; right:0; background:var(--verde-bosco); padding:15px; text-align:center; color:white; font-family:'Montserrat',sans-serif; font-size:0.85rem;">IL RISPETTO AL CENTRO</div>
+                    </div>
+                    <div class="tpl-content">
+                        <div class="tpl-num">06</div>
+                        <div class="tpl-data">
+                            <span style="font-family:'Montserrat',sans-serif; font-size:0.8rem; color:var(--oro-caldo); font-weight:bold;">INFO-POST 4:5</span>
+                            <h4 style="font-size: 1.5rem; margin-top:5px; margin-bottom:15px;">Benessere animale</h4>
+                            <p style="font-size: 0.9rem;"><strong>Asset:</strong> Allevamento bio<br><strong>CTA:</strong> Scopri le pratiche</p>
+                        </div>
+                        <p style="font-size:0.85rem; color:var(--marrone-terra);"><strong>Nota strategica:</strong> Rassicura sulle metodologie di allevamento e sul controllo filiera.</p>
+                        <p style="font-size:0.85rem; color:var(--marrone-terra);"><strong>KPI Futuro:</strong> Condivisioni e Trust score.</p>
+                    </div>
+                </div>
+
+                <!-- TPL 7 -->
+                <div class="template-slide">
+                    <div class="tpl-visual">
+                        <img src="../assets/images/bianca-assistente-virtuale.png" alt="Template">
+                    </div>
+                    <div class="tpl-content">
+                        <div class="tpl-num">07</div>
+                        <div class="tpl-data">
+                            <span style="font-family:'Montserrat',sans-serif; font-size:0.8rem; color:var(--oro-caldo); font-weight:bold;">POST 4:5 · INNOVATION</span>
+                            <h4 style="font-size: 1.5rem; margin-top:5px; margin-bottom:15px;">Conosci Bianca</h4>
+                            <p style="font-size: 0.9rem;"><strong>Asset:</strong> Avatar Bianca AI<br><strong>CTA:</strong> Prova la chat</p>
+                        </div>
+                        <p style="font-size:0.85rem; color:var(--marrone-terra);"><strong>Nota strategica:</strong> Introduce il touchpoint digitale conversazionale in modo umano ed elegante.</p>
+                        <p style="font-size:0.85rem; color:var(--marrone-terra);"><strong>KPI Futuro:</strong> Accessi bot.</p>
+                    </div>
+                </div>
+
+                <!-- TPL 8 -->
+                <div class="template-slide">
+                    <div class="tpl-visual">
+                        <img src="../assets/images/laboratorio-food-aia-pura-bio-orizzontale.png" alt="Template" style="object-position: left center;">
+                    </div>
+                    <div class="tpl-content">
+                        <div class="tpl-num">08</div>
+                        <div class="tpl-data">
+                            <span style="font-family:'Montserrat',sans-serif; font-size:0.8rem; color:var(--oro-caldo); font-weight:bold;">POST 4:5 · CHEF</span>
+                            <h4 style="font-size: 1.5rem; margin-top:5px; margin-bottom:15px;">In laboratorio</h4>
+                            <p style="font-size: 0.9rem;"><strong>Asset:</strong> Preparazioni food<br><strong>CTA:</strong> Ispirazione ricette</p>
+                        </div>
+                        <p style="font-size:0.85rem; color:var(--marrone-terra);"><strong>Nota strategica:</strong> Ispirazione diretta per gli utilizzatori finali dei prodotti B2B (chef, pasticceri).</p>
+                        <p style="font-size:0.85rem; color:var(--marrone-terra);"><strong>KPI Futuro:</strong> Salvataggi.</p>
+                    </div>
+                </div>
+
+                <!-- TPL 9 -->
+                <div class="template-slide">
+                    <div class="tpl-visual">
+                        <img src="../assets/images/catalogo-b2b-storytelling.png" alt="Template">
+                        <div style="position:absolute; inset:0; background:rgba(45,94,58,0.6); display:flex; align-items:center; justify-content:center;">
+                            <div style="border:1px solid var(--oro-caldo); color:white; padding:15px 30px; text-transform:uppercase; font-family:'Montserrat',sans-serif; font-weight:bold; letter-spacing:1px;">Richiedi Catalogo</div>
+                        </div>
+                    </div>
+                    <div class="tpl-content">
+                        <div class="tpl-num">09</div>
+                        <div class="tpl-data">
+                            <span style="font-family:'Montserrat',sans-serif; font-size:0.8rem; color:var(--oro-caldo); font-weight:bold;">POST 4:5 · CTA</span>
+                            <h4 style="font-size: 1.5rem; margin-top:5px; margin-bottom:15px;">Conversione diretta</h4>
+                            <p style="font-size: 0.9rem;"><strong>Asset:</strong> Catalogo con overlay<br><strong>CTA:</strong> Link in Bio</p>
+                        </div>
+                        <p style="font-size:0.85rem; color:var(--marrone-terra);"><strong>Nota strategica:</strong> Post esplicito per lead generation. Indirizza traffico qualificato.</p>
+                        <p style="font-size:0.85rem; color:var(--marrone-terra);"><strong>KPI Futuro:</strong> Click al sito, Lead.</p>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- 11. Stories & 12. Copertine -->
-        <section id="stories-highlights">
-            <h2 class="section-title">Stories e In Evidenza</h2>
+    <!-- STEP 10: CAROSELLO EDUCATIVO -->
+    <section id="carosello-educativo" class="bg-white">
+        <div class="container">
+            <div class="section-header text-center" style="max-width: 800px;">
+                <div class="section-number" style="justify-content: center;">07.</div>
+                <h2 style="font-size: 2.5rem;">Perché la filiera racconta un territorio</h2>
+                <p class="section-desc" style="margin: 0 auto; text-align: center; border-left: none; border-bottom: 3px solid var(--oro-caldo); padding-bottom: 15px;">Sei slide che spiegano, senza claim impropri, come filiera, packaging, territorio, prodotto e relazione costruiscano fiducia.</p>
+            </div>
             
-            <h3 class="montserrat" style="margin-bottom: 20px;">Format Stories (9:16)</h3>
-            <div class="stories-grid" style="margin-bottom: 50px;">
-                <div class="story-card" style="background-image: url('../assets/images/filiera-allevamento-collage.png'); background-size: cover; background-position: center;">
-                    <div style="background: rgba(45, 94, 58, 0.8); padding: 10px; border-radius: 8px; width: 100%;">Scopri la filiera</div>
-                </div>
-                <div class="story-card" style="background-image: url('../assets/images/catalogo-b2b-storytelling.png'); background-size: cover; background-position: center;">
-                    <div style="background: rgba(45, 94, 58, 0.8); padding: 10px; border-radius: 8px; width: 100%;">Consulta il catalogo</div>
-                </div>
-                <div class="story-card" style="background-image: url('../assets/images/bianca-assistente-virtuale.png'); background-size: cover; background-position: center;">
-                    <div style="background: rgba(45, 94, 58, 0.8); padding: 10px; border-radius: 8px; width: 100%;">Parla con Bianca</div>
-                </div>
-                <div class="story-card" style="background-image: url('../assets/images/campionatura-b2b-packaging-uova-qr-code.png'); background-size: cover; background-position: center;">
-                    <div style="background: rgba(45, 94, 58, 0.8); padding: 10px; border-radius: 8px; width: 100%;">Richiedi campione</div>
-                </div>
-            </div>
-
-            <h3 class="montserrat" style="margin-bottom: 20px;">Cover Stories In Evidenza</h3>
-            <div style="display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px;">
-                <div style="text-align: center;"><div style="width:80px;height:80px;border-radius:50%;background:var(--verde-bosco);margin-bottom:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:24px;">🌿</div><span class="montserrat" style="font-size:12px;font-weight:bold;">Filiera</span></div>
-                <div style="text-align: center;"><div style="width:80px;height:80px;border-radius:50%;background:var(--verde-oliva);margin-bottom:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:24px;">🥚</div><span class="montserrat" style="font-size:12px;font-weight:bold;">Prodotti</span></div>
-                <div style="text-align: center;"><div style="width:80px;height:80px;border-radius:50%;background:var(--oro-caldo);margin-bottom:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:24px;">📍</div><span class="montserrat" style="font-size:12px;font-weight:bold;">Puglia</span></div>
-                <div style="text-align: center;"><div style="width:80px;height:80px;border-radius:50%;background:var(--grigio-caldo);margin-bottom:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:24px;">📱</div><span class="montserrat" style="font-size:12px;font-weight:bold;">QR</span></div>
-                <div style="text-align: center;"><div style="width:80px;height:80px;border-radius:50%;background:var(--marrone-terra);margin-bottom:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:24px;">🤖</div><span class="montserrat" style="font-size:12px;font-weight:bold;">Bianca</span></div>
-                <div style="text-align: center;"><div style="width:80px;height:80px;border-radius:50%;background:var(--verde-bosco);margin-bottom:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:24px;">🍳</div><span class="montserrat" style="font-size:12px;font-weight:bold;">Ricette</span></div>
-                <div style="text-align: center;"><div style="width:80px;height:80px;border-radius:50%;background:var(--verde-oliva);margin-bottom:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:24px;">🤝</div><span class="montserrat" style="font-size:12px;font-weight:bold;">B2B</span></div>
-                <div style="text-align: center;"><div style="width:80px;height:80px;border-radius:50%;background:var(--oro-caldo);margin-bottom:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:24px;">❓</div><span class="montserrat" style="font-size:12px;font-weight:bold;">FAQ</span></div>
-            </div>
-        </section>
-
-        <!-- 13, 14, 15, 16. Strategia -->
-        <section id="strategia">
-            <h2 class="section-title">Strategia Editoriale</h2>
-            
-            <div class="list-section">
-                <h3 class="montserrat" style="margin-bottom: 20px;">Pilastri Editoriali</h3>
-                <ol>
-                    <li>Fiducia e riduzione del rischio percepito</li>
-                    <li>Territorio pugliese e identità</li>
-                    <li>Prodotto biologico e uso professionale</li>
-                    <li>Tracciabilità phygital, QR e packaging</li>
-                    <li>Relazione B2B, Bianca e contatto umano</li>
-                </ol>
-            </div>
-
-            <div class="list-section">
-                <h3 class="montserrat" style="margin-bottom: 20px;">Calendario Editoriale Mensile</h3>
-                <div class="cal-grid">
-                    <div class="cal-week">
-                        <h4>Settimana 1</h4>
-                        <p>Identità, manifesto, territorio, fiducia</p>
+            <div class="grid-3">
+                <div class="edu-slide light">
+                    <img src="../assets/images/territorio-pugliese-storytelling.png" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.18; z-index:0;" alt="bg">
+                    <div style="position:relative; z-index:1;">
+                        <div class="edu-num">1/6</div>
+                        <h4>La fiducia non si dichiara. Si verifica.</h4>
+                        <div style="font-family:'Montserrat',sans-serif; font-size:0.75rem; color:var(--oro-caldo); margin-top:20px; font-weight:bold;">SWIPE ➔</div>
                     </div>
-                    <div class="cal-week">
-                        <h4>Settimana 2</h4>
-                        <p>Prodotto, uova bio, carne avicola, target B2B</p>
+                </div>
+                <div class="edu-slide dark">
+                    <img src="../assets/images/uova-10-pezzi-packaging-prodotto.png" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.15; z-index:0;" alt="bg">
+                    <div style="position:relative; z-index:1;">
+                        <div class="edu-num">2/6</div>
+                        <h4>Una filiera leggibile riduce il rischio percepito.</h4>
                     </div>
-                    <div class="cal-week">
-                        <h4>Settimana 3</h4>
-                        <p>Packaging, QR code, Bianca AI, catalogo</p>
+                </div>
+                <div class="edu-slide light">
+                    <img src="../assets/images/packaging-qr-code-filiera.png" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.18; z-index:0;" alt="bg">
+                    <div style="position:relative; z-index:1;">
+                        <div class="edu-num">3/6</div>
+                        <h4>Il packaging si trasforma nel tuo primo touchpoint.</h4>
                     </div>
-                    <div class="cal-week">
-                        <h4>Settimana 4</h4>
-                        <p>FAQ, ricette, richiesta campione, contatto</p>
+                </div>
+                <div class="edu-slide dark">
+                    <img src="../assets/images/bianca-assistente-virtuale.png" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.15; z-index:0;" alt="bg">
+                    <div style="position:relative; z-index:1;">
+                        <div class="edu-num">4/6</div>
+                        <h4>QR e Bianca AI aprono un dialogo immediato.</h4>
+                    </div>
+                </div>
+                <div class="edu-slide light">
+                    <img src="../assets/images/laboratorio-food-aia-pura-bio-orizzontale.png" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.18; z-index:0;" alt="bg">
+                    <div style="position:relative; z-index:1;">
+                        <div class="edu-num">5/6</div>
+                        <h4>Un prodotto che eleva il risultato in laboratorio.</h4>
+                    </div>
+                </div>
+                <div class="edu-slide" style="background: var(--oro-caldo); color: white;">
+                    <img src="../assets/images/catalogo-b2b-storytelling.png" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.22; z-index:0;" alt="bg">
+                    <div style="position:relative; z-index:1;">
+                        <div class="edu-num" style="color:white;">6/6</div>
+                        <h4 style="color:white;">Consulta il catalogo B2B o richiedi subito un campione.</h4>
+                        <div style="display:inline-block; margin-top:20px; background:white; color:var(--oro-caldo); padding:10px 20px; border-radius:30px; font-family:'Montserrat',sans-serif; font-weight:bold; font-size:0.8rem;">LINK IN BIO</div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="list-section">
-                <h3 class="montserrat" style="margin-bottom: 20px;">CTA per Funnel</h3>
-                <ul>
-                    <li><strong>TOFU (Top):</strong> Scopri la filiera</li>
-                    <li><strong>MOFU (Middle):</strong> Consulta il catalogo / Parla con Bianca</li>
-                    <li><strong>BOFU (Bottom):</strong> Richiedi un campione / Invia una richiesta</li>
-                    <li><strong>Nurturing:</strong> Iscriviti alla newsletter</li>
-                </ul>
+    <!-- STEP 11: STORIES -->
+    <section id="stories" class="bg-crema">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">08.</div>
+                <h2>Quattro Stories collegate</h2>
+                <div class="section-desc">Una mini sequenza verticale pensata per hook, spiegazione, interazione e invito all’azione.</div>
             </div>
 
-            <div class="list-section" style="background-color: var(--crema-naturale); border: 2px dashed var(--verde-oliva);">
-                <h3 class="montserrat" style="margin-bottom: 20px;">KPI Futuri</h3>
-                <p class="microcopy" style="color: var(--marrone-terra); margin-bottom: 15px;">* KPI non reali, da misurare in fase pilota.</p>
-                <div style="display: flex; flex-wrap: wrap; gap: 15px;">
-                    <span class="badge" style="background-color: var(--verde-bosco);">salvataggi</span>
-                    <span class="badge" style="background-color: var(--verde-bosco);">click al catalogo</span>
-                    <span class="badge" style="background-color: var(--verde-bosco);">aperture Bianca</span>
-                    <span class="badge" style="background-color: var(--verde-bosco);">scansioni QR</span>
-                    <span class="badge" style="background-color: var(--verde-bosco);">tempo sulla pagina</span>
-                    <span class="badge" style="background-color: var(--verde-bosco);">richieste campione</span>
-                    <span class="badge" style="background-color: var(--verde-bosco);">lead rate</span>
-                    <span class="badge" style="background-color: var(--verde-bosco);">risposte email</span>
-                    <span class="badge" style="background-color: var(--verde-bosco);">click Shopify prototipale</span>
+            <div class="grid-4">
+                <div class="story-card">
+                    <img src="../assets/images/gallina-biologica-prodotto.png" class="story-bg">
+                    <div class="story-overlay">
+                        <div style="color:white; font-family:'Montserrat',sans-serif; font-size:0.7rem; font-weight:bold; letter-spacing:1px;">1. HOOK</div>
+                        <div class="story-sticker">Sai cosa mangiano le nostre galline?</div>
+                        <div style="color:white; text-align:center; font-size:0.8rem;">Tap per scoprire</div>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <img src="../assets/images/benessere-animale-filiera-01.png" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;">
+                    <div class="story-overlay" style="z-index:1; background:linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+                        <div style="color:var(--oro-caldo); font-family:'Montserrat',sans-serif; font-size:0.7rem; font-weight:bold; letter-spacing:1px;">2. EDUCAZIONE</div>
+                        <p style="color:white; font-family:'Playfair Display',serif; font-size:1.5rem; text-align:center; line-height:1.2; background:rgba(45,94,58,0.8); padding:20px; border-radius:12px;">Solo mangime 100% biologico certificato.</p>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <img src="../assets/images/bianca-assistente-virtuale.png" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;">
+                    <div class="story-overlay" style="justify-content:center; z-index:1; background:rgba(0,0,0,0.3);">
+                        <div style="color:var(--verde-bosco); background:rgba(255,255,255,0.9); padding:5px 12px; border-radius:10px; font-family:'Montserrat',sans-serif; font-size:0.7rem; font-weight:bold; letter-spacing:1px; position:absolute; top:20px; left:20px;">3. INTERAZIONE</div>
+                        <div style="background:white; border: 2px solid var(--verde-oliva); padding:20px; border-radius:15px; text-align:center;">
+                            <p style="color:var(--verde-bosco); font-family:'Montserrat',sans-serif; font-weight:bold; font-size:0.9rem; margin-bottom:15px;">Fai una domanda a Bianca AI</p>
+                            <div style="background:#eee; padding:10px; border-radius:8px; color:#aaa; font-size:0.8rem;">Scrivi qui...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <img src="../assets/images/catalogo-b2b-storytelling.png" class="story-bg">
+                    <div class="story-overlay">
+                        <div style="color:white; font-family:'Montserrat',sans-serif; font-size:0.7rem; font-weight:bold; letter-spacing:1px;">4. CONVERSION</div>
+                        <div class="story-sticker" style="background: var(--oro-caldo); color: white;">Scarica il catalogo ➔</div>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- 17 & 18. Appendice -->
-        <section id="appendice" class="bg-white" style="padding: 60px 40px; border-radius: 12px; margin-bottom: 80px;">
-            <h2 class="section-title">Appendice Tecnico-Creativa</h2>
-            
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+    <!-- STEP 12: ALTRE SEZIONI DA ESSEREAPE -->
+    
+    <!-- Highlights -->
+    <section class="bg-white">
+        <div class="container">
+            <div class="section-header">
+                <h2>Otto copertine evidenziate</h2>
+                <div class="section-desc">Icone originali, minimali, coerenti col sistema. Una grammatica visiva per ogni capitolo del brand.</div>
+            </div>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+                <div style="text-align:center;"><img src="../assets/images/logo-aiapurabio-icona-rotondo.png" style="width:70px; height:70px; border-radius:50%; border:2px solid var(--verde-bosco); display:block; margin: 0 auto 10px; object-fit: cover;"><span style="font-size:0.8rem; font-family:'Montserrat',sans-serif;">Brand</span></div>
+                <div style="text-align:center;"><img src="../assets/images/gallina-biologica-prodotto.png" style="width:70px; height:70px; border-radius:50%; border:2px solid var(--verde-bosco); display:block; margin: 0 auto 10px; object-fit: cover;"><span style="font-size:0.8rem; font-family:'Montserrat',sans-serif;">Filiera</span></div>
+                <div style="text-align:center;"><img src="../assets/images/uova-10-pezzi-packaging-prodotto.png" style="width:70px; height:70px; border-radius:50%; border:2px solid var(--verde-bosco); display:block; margin: 0 auto 10px; object-fit: cover;"><span style="font-size:0.8rem; font-family:'Montserrat',sans-serif;">Prodotto</span></div>
+                <div style="text-align:center;"><img src="../assets/images/territorio-pugliese-storytelling.png" style="width:70px; height:70px; border-radius:50%; border:2px solid var(--verde-bosco); display:block; margin: 0 auto 10px; object-fit: cover;"><span style="font-size:0.8rem; font-family:'Montserrat',sans-serif;">Territorio</span></div>
+                <div style="text-align:center;"><img src="../assets/images/packaging-qr-code-filiera.png" style="width:70px; height:70px; border-radius:50%; border:2px solid var(--oro-caldo); display:block; margin: 0 auto 10px; object-fit: cover;"><span style="font-size:0.8rem; font-family:'Montserrat',sans-serif;">Tracciabilità</span></div>
+                <div style="text-align:center;"><img src="../assets/images/bianca-assistente-virtuale.png" style="width:70px; height:70px; border-radius:50%; border:2px solid var(--oro-caldo); display:block; margin: 0 auto 10px; object-fit: cover;"><span style="font-size:0.8rem; font-family:'Montserrat',sans-serif;">Bianca AI</span></div>
+                <div style="text-align:center;"><img src="../assets/images/laboratorio-food-aia-pura-bio-orizzontale.png" style="width:70px; height:70px; border-radius:50%; border:2px solid var(--verde-bosco); display:block; margin: 0 auto 10px; object-fit: cover;"><span style="font-size:0.8rem; font-family:'Montserrat',sans-serif;">Chef & B2B</span></div>
+                <div style="text-align:center;"><img src="../assets/images/catalogo-b2b-storytelling.png" style="width:70px; height:70px; border-radius:50%; border:2px solid var(--verde-bosco); display:block; margin: 0 auto 10px; object-fit: cover;"><span style="font-size:0.8rem; font-family:'Montserrat',sans-serif;">Catalogo</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Planner e Numeri -->
+    <section id="content-planner" class="bg-crema">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">09.</div>
+                <h2>Il piano in numeri</h2>
+                <div class="section-desc">Una panoramica del sistema editoriale proposto. Valori di pianificazione, non risultati ottenuti.</div>
+            </div>
+            <div class="grid-4 mb-8">
+                <div class="card text-center"><h4 style="font-size:3rem; margin-bottom:5px; color:var(--oro-caldo);">12</h4><p>Post / mese</p></div>
+                <div class="card text-center"><h4 style="font-size:3rem; margin-bottom:5px; color:var(--oro-caldo);">04</h4><p>Reel / mese</p></div>
+                <div class="card text-center"><h4 style="font-size:3rem; margin-bottom:5px; color:var(--oro-caldo);">16</h4><p>Stories / mese</p></div>
+                <div class="card text-center"><h4 style="font-size:3rem; margin-bottom:5px; color:var(--oro-caldo);">05</h4><p>Pillar tematici</p></div>
+            </div>
+
+            <div class="grid-2">
                 <div>
-                    <h3 class="montserrat">Prompt Immagini (Generazione)</h3>
-                    <ul style="padding-left: 20px; line-height: 1.8;">
-                        <li>filiera pugliese</li>
-                        <li>uova biologiche</li>
-                        <li>laboratorio pasta fresca</li>
-                        <li>packaging QR</li>
-                        <li>Bianca AI</li>
-                        <li>chef professionale</li>
-                        <li>galline all’aperto</li>
-                        <li>ricetta professionale</li>
-                        <li>catalogo B2B</li>
+                    <h3 style="border-bottom:2px solid var(--verde-bosco); padding-bottom:10px;">Cinque pilastri</h3>
+                    <ul style="line-height: 2;">
+                        <li><strong>1. Trasparenza di Filiera:</strong> Autorevolezza e controllo.</li>
+                        <li><strong>2. Eccellenza di Prodotto:</strong> Caratteristiche B2B.</li>
+                        <li><strong>3. Radici Pugliesi:</strong> Territorio come garanzia.</li>
+                        <li><strong>4. Innovazione Phygital:</strong> QR code e Bianca AI.</li>
+                        <li><strong>5. Supporto Professionale:</strong> Servizi per Chef e Laboratori.</li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="montserrat">Checklist Finale</h3>
-                    <ul class="checklist">
-                        <li>claim coerente</li>
-                        <li>palette corretta</li>
-                        <li>font corretti</li>
-                        <li>nessun dato reale inventato</li>
-                        <li>nota prototipo visibile</li>
-                        <li>CTA collegate al funnel</li>
-                        <li>Bianca presentata come assistente dimostrativa</li>
-                        <li>Shopify presentato come shop prototipale</li>
-                        <li>KPI indicati come futuri</li>
-                    </ul>
+                    <h3 style="border-bottom:2px solid var(--verde-bosco); padding-bottom:10px;">Dieci categorie, cinquanta idee</h3>
+                    <p style="font-size: 0.9rem;">Brainstorming categorizzato per variare il piano senza perdere coerenza: dai tutorial su come usare il QR, alle interviste agli allevatori, alle ricette dimostrative, fino ai reminder per richiedere la campionatura.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-    </main>
+    <!-- Calendari e Piani Dettagliati -->
+    <section class="bg-white">
+        <div class="container">
+            <div class="section-header">
+                <h2>Quattro settimane, dodici contenuti</h2>
+            </div>
+            
+            <h3 style="margin-top: 40px; margin-bottom: 20px;">Le quattro settimane, in dettaglio</h3>
+            <table class="planner-table">
+                <thead>
+                    <tr><th>Settimana</th><th>Focus Tematico</th><th>Post Feed</th><th>Stories</th><th>Obiettivo</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>W1</td><td>Awareness & Filiera</td><td>Manifesto, Reel Territorio, Edu</td><td>Hook e Quiz (4)</td><td>Identity</td></tr>
+                    <tr><td>W2</td><td>Prodotto & Laboratorio</td><td>Uova per Chef, Carosello, Info</td><td>Q&A Prodotto (4)</td><td>Consideration</td></tr>
+                    <tr><td>W3</td><td>Tech & Bianca AI</td><td>Post QR, Demo Bianca, Tech</td><td>Box Domande AI (4)</td><td>Trust / Phygital</td></tr>
+                    <tr><td>W4</td><td>Conversion & B2B</td><td>Catalogo, Testimonial, Campione</td><td>Swipe Up (4)</td><td>Lead Generation</td></tr>
+                </tbody>
+            </table>
 
-    <footer style="background-color: var(--verde-bosco); color: var(--crema-naturale); padding: 40px 20px; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 0.9rem;">
-        <p>Aia Pura Bio — Studio di fattibilità e prototipo digitale</p>
+            <div class="grid-2 mt-5">
+                <div>
+                    <h3 style="border-bottom:2px solid var(--verde-bosco); padding-bottom:10px;">Sedici Stories, quattro gruppi</h3>
+                    <p style="font-size: 0.9rem;">Organizzate in blocchi funzionali: Hook (per attrarre), Educational (per spiegare il biologico), Interazione (tramite sondaggi) e Conversione (Link esterni).</p>
+                </div>
+                <div>
+                    <h3 style="border-bottom:2px solid var(--verde-bosco); padding-bottom:10px;">Set di hashtag da testare</h3>
+                    <p style="font-size: 0.9rem; color: var(--grigio-caldo); font-style: italic;">Gruppi tematici proposti come ipotesi operativa: vanno testati e ottimizzati nel tempo. Gli hashtag sono set operativi da testare e ottimizzare. I riferimenti a qualità, certificazione o tracciabilità devono essere usati solo quando coerenti con i materiali ufficiali del progetto.</p>
+                    <p style="font-size: 0.85rem; font-family: monospace;">#AiaPuraBio #FilieraCorta #UovaBiologiche #FoodServicePuglia #ChefItaliani</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 50px; border-bottom:2px solid var(--verde-bosco); padding-bottom:10px;">Call to action per fase funnel</h3>
+            <div class="grid-3 mt-4">
+                <div class="card" style="padding: 20px;"><strong>TOFU:</strong> Scopri la filiera, Leggi la storia, Guarda il video.</div>
+                <div class="card" style="padding: 20px;"><strong>MOFU:</strong> Salva il post, Scansiona il QR, Chiedi a Bianca.</div>
+                <div class="card" style="padding: 20px; border-top-color: var(--oro-caldo);"><strong>BOFU:</strong> Scarica il catalogo, Richiedi un campione, Contattaci.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow e KPI -->
+    <section id="metodo-kpi" class="bg-crema">
+        <div class="container">
+            <div class="section-header text-center" style="max-width: 800px; margin: 0 auto 50px;">
+                <div class="section-number" style="justify-content: center;">10.</div>
+                <h2 style="font-size: 2.8rem;">Dal materiale al KPI futuro</h2>
+                <p class="section-desc" style="margin: 0 auto; text-align: center; padding-bottom: 15px;">Nove fasi sequenziali per produrre ogni contenuto con metodo, dalla fonte alla misurazione.</p>
+            </div>
+
+            <div style="max-width: 900px; margin: 40px auto 60px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                    <div style="background: white; padding: 25px; border-radius: 16px; box-shadow: var(--shadow-soft); border-left: 4px solid var(--oro-caldo); position: relative;">
+                        <span style="color: rgba(197, 151, 59, 0.2); font-family: 'Playfair Display', serif; font-size: 3.5rem; position: absolute; top: 10px; right: 20px; line-height: 1;">1</span>
+                        <h4 style="margin: 0 0 10px; font-size: 1.2rem;">Strategia</h4>
+                        <p style="font-size: 0.9rem; margin: 0; color: var(--grigio-caldo);">Scelta del pillar e dell'obiettivo.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 16px; box-shadow: var(--shadow-soft); border-left: 4px solid var(--oro-caldo); position: relative;">
+                        <span style="color: rgba(197, 151, 59, 0.2); font-family: 'Playfair Display', serif; font-size: 3.5rem; position: absolute; top: 10px; right: 20px; line-height: 1;">2</span>
+                        <h4 style="margin: 0 0 10px; font-size: 1.2rem;">Idea</h4>
+                        <p style="font-size: 0.9rem; margin: 0; color: var(--grigio-caldo);">Definizione del format visivo.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 16px; box-shadow: var(--shadow-soft); border-left: 4px solid var(--oro-caldo); position: relative;">
+                        <span style="color: rgba(197, 151, 59, 0.2); font-family: 'Playfair Display', serif; font-size: 3.5rem; position: absolute; top: 10px; right: 20px; line-height: 1;">3</span>
+                        <h4 style="margin: 0 0 10px; font-size: 1.2rem;">Asset</h4>
+                        <p style="font-size: 0.9rem; margin: 0; color: var(--grigio-caldo);">Immagini o prompt dedicati.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 16px; box-shadow: var(--shadow-soft); border-left: 4px solid var(--verde-oliva); position: relative;">
+                        <span style="color: rgba(107, 142, 35, 0.2); font-family: 'Playfair Display', serif; font-size: 3.5rem; position: absolute; top: 10px; right: 20px; line-height: 1;">4</span>
+                        <h4 style="margin: 0 0 10px; font-size: 1.2rem;">Copywriting</h4>
+                        <p style="font-size: 0.9rem; margin: 0; color: var(--grigio-caldo);">Caption e microcopy essenziale.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 16px; box-shadow: var(--shadow-soft); border-left: 4px solid var(--verde-oliva); position: relative;">
+                        <span style="color: rgba(107, 142, 35, 0.2); font-family: 'Playfair Display', serif; font-size: 3.5rem; position: absolute; top: 10px; right: 20px; line-height: 1;">5</span>
+                        <h4 style="margin: 0 0 10px; font-size: 1.2rem;">Design</h4>
+                        <p style="font-size: 0.9rem; margin: 0; color: var(--grigio-caldo);">Inserimento nel template 4:5.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 16px; box-shadow: var(--shadow-soft); border-left: 4px solid var(--verde-oliva); position: relative;">
+                        <span style="color: rgba(107, 142, 35, 0.2); font-family: 'Playfair Display', serif; font-size: 3.5rem; position: absolute; top: 10px; right: 20px; line-height: 1;">6</span>
+                        <h4 style="margin: 0 0 10px; font-size: 1.2rem;">Revisione</h4>
+                        <p style="font-size: 0.9rem; margin: 0; color: var(--grigio-caldo);">Checklist di qualità B2B.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 16px; box-shadow: var(--shadow-soft); border-left: 4px solid var(--verde-bosco); position: relative;">
+                        <span style="color: rgba(45, 94, 58, 0.1); font-family: 'Playfair Display', serif; font-size: 3.5rem; position: absolute; top: 10px; right: 20px; line-height: 1;">7</span>
+                        <h4 style="margin: 0 0 10px; font-size: 1.2rem;">Approval</h4>
+                        <p style="font-size: 0.9rem; margin: 0; color: var(--grigio-caldo);">OK finale agenzia/cliente.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 16px; box-shadow: var(--shadow-soft); border-left: 4px solid var(--verde-bosco); position: relative;">
+                        <span style="color: rgba(45, 94, 58, 0.1); font-family: 'Playfair Display', serif; font-size: 3.5rem; position: absolute; top: 10px; right: 20px; line-height: 1;">8</span>
+                        <h4 style="margin: 0 0 10px; font-size: 1.2rem;">Scheduling</h4>
+                        <p style="font-size: 0.9rem; margin: 0; color: var(--grigio-caldo);">Pubblicazione a calendario.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 16px; box-shadow: var(--shadow-soft); border-left: 4px solid var(--verde-bosco); position: relative;">
+                        <span style="color: rgba(45, 94, 58, 0.1); font-family: 'Playfair Display', serif; font-size: 3.5rem; position: absolute; top: 10px; right: 20px; line-height: 1;">9</span>
+                        <h4 style="margin: 0 0 10px; font-size: 1.2rem;">Analisi</h4>
+                        <p style="font-size: 0.9rem; margin: 0; color: var(--grigio-caldo);">Dashboard e KPI mensili.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-2 mt-5">
+                <div class="card" style="border-top: 4px solid var(--verde-bosco);">
+                    <h3 style="font-size: 1.6rem; margin-bottom: 10px;">Prima di pubblicare</h3>
+                    <p style="font-style: italic; font-size: 0.9rem; color: var(--grigio-caldo); margin-bottom: 25px;">Tocca ogni voce per spuntarla (verifica dimostrativa).</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 18px;">
+                        <li style="display: flex; align-items: flex-start; gap: 12px; font-size: 0.95rem; font-weight: 500;"><input type="checkbox" style="width: 20px; height: 20px; accent-color: var(--verde-bosco); flex-shrink: 0; margin-top: 2px;"> Il logo ha l'area di rispetto?</li>
+                        <li style="display: flex; align-items: flex-start; gap: 12px; font-size: 0.95rem; font-weight: 500;"><input type="checkbox" style="width: 20px; height: 20px; accent-color: var(--verde-bosco); flex-shrink: 0; margin-top: 2px;"> I colori sono quelli della Brand Board?</li>
+                        <li style="display: flex; align-items: flex-start; gap: 12px; font-size: 0.95rem; font-weight: 500;"><input type="checkbox" style="width: 20px; height: 20px; accent-color: var(--verde-bosco); flex-shrink: 0; margin-top: 2px;"> La CTA è chiara e singola?</li>
+                        <li style="display: flex; align-items: flex-start; gap: 12px; font-size: 0.95rem; font-weight: 500;"><input type="checkbox" style="width: 20px; height: 20px; accent-color: var(--verde-bosco); flex-shrink: 0; margin-top: 2px;"> Il tone of voice B2B è rispettato?</li>
+                    </ul>
+                </div>
+                
+                <div class="card" style="border-top: 4px solid var(--oro-caldo);">
+                    <h3 style="font-size: 1.6rem; margin-bottom: 10px;">Nove prompt AI</h3>
+                    <p style="font-style: italic; font-size: 0.9rem; color: var(--grigio-caldo); margin-bottom: 20px;">Prompt sintetici per generare i visual finali. Ogni prompt prevede spazio negativo per i testi e vincoli espliciti: nessun testo generato dall’AI, nessun watermark, logo mai alterato.</p>
+                    <div class="prompt-box" style="font-size: 0.85rem; line-height: 1.6; background: rgba(197, 151, 59, 0.1); border: 1px solid rgba(197, 151, 59, 0.3); color: var(--verde-bosco); padding: 20px; border-radius: 12px;">/imagine prompt: organic farm flat lay on wooden background, negative space on right for typography, natural lighting, highly detailed --ar 4:5 --no text, watermarks</div>
+                </div>
+            </div>
+
+            <div class="card mt-5 text-center" style="max-width: 800px; margin: 40px auto 0; background: var(--verde-bosco); color: var(--crema-naturale);">
+                <h3 style="color: var(--oro-caldo); font-size: 1.8rem;">Guida alla lettura e nota finale</h3>
+                <p style="font-size: 0.95rem; margin-top: 15px; line-height: 1.8; opacity: 0.9;">Il presente piano organizza le direttrici operative per Aia Pura Bio.<br><strong>Questo documento rappresenta un prototipo progettuale e strategico. I dati, le metriche e i contenuti presentati sono ipotesi di lavoro formulate per il Project Work LUM. Il progetto non è una validazione commerciale reale, ma uno studio di fattibilità.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STEP 13: FOOTER FINALE -->
+    <footer class="footer">
+        <div class="container">
+            <img src="../assets/images/logo-aia-pura-bio.png" alt="Aia Pura Bio Logo" class="footer-logo">
+            <div class="footer-title">Aia Pura Bio - Piano editoriale visivo</div>
+            <p class="footer-credits">A cura di Federica Centonze · Caso studio creativo-strategico · Socialin Communication / Federica Creative<br>
+            Prototipo progettuale · sistema visivo e piano editoriale · KPI futuri simulati</p>
+            <a href="https://socialincommunication.com/" style="display:inline-block; margin-top:30px; color:var(--oro-caldo); font-family:'Montserrat',sans-serif; text-decoration:none; font-weight:bold; border: 1px solid var(--oro-caldo); padding: 10px 20px; border-radius:30px; transition: 0.3s;">Torna ai casi studio Socialin</a>
+        </div>
     </footer>
 
 </body>
