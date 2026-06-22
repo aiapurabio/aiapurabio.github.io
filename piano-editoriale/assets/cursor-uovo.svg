@@ -1,0 +1,7 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Droplet/Egg Base -->
+  <path d="M 7,5 C 7,12 9,18 12,22 A 7.07 7.07 0 0 0 22 12 C 18,9 12,7 7,5 Z" 
+        fill="#F5F2E9" stroke="#1B3325" stroke-width="1.5" stroke-linejoin="round"/>
+  <!-- Gold detail (small inner curve matching the egg shape) -->
+  <path d="M 12,18 A 4 4 0 0 0 18 12" fill="none" stroke="#C5A059" stroke-width="1.5" stroke-linecap="round" />
+</svg>
