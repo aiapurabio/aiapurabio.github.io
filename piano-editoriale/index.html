@@ -985,10 +985,63 @@
             font-size: 0.9rem;
             opacity: 0.8;
         }
+        .scroll-top-button {
+          position: fixed;
+          right: clamp(18px, 3vw, 42px);
+          bottom: calc(18px + env(safe-area-inset-bottom));
+          width: 48px;
+          height: 48px;
+          border: 1px solid var(--oro-caldo, #C5973B);
+          background-color: var(--verde-bosco, #2D5E3A);
+          color: var(--crema-naturale, #FAF6EF);
+          border-radius: 14px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          opacity: 0;
+          visibility: hidden;
+          pointer-events: none;
+          transform: translateY(12px);
+          transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+          z-index: 999;
+          box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+        }
+
+        .scroll-top-button span {
+          font-size: 23px;
+          line-height: 1;
+          font-weight: 700;
+        }
+
+        .scroll-top-button.is-visible {
+          opacity: 1;
+          visibility: visible;
+          pointer-events: auto;
+          transform: translateY(0);
+        }
+
+        .scroll-top-button:hover {
+          transform: translateY(-3px);
+        }
+
+        .scroll-top-button:focus-visible {
+          outline: 3px solid rgba(255,255,255,0.85);
+          outline-offset: 3px;
+        }
     </style>
 </head>
 
 <body>
+<button
+  class="scroll-top-button"
+  id="scrollTopButton"
+  type="button"
+  aria-label="Torna all'inizio della pagina"
+  title="Torna su"
+>
+  <span aria-hidden="true">↑</span>
+</button>
 
     <!-- MENU INTERNO -->
     <nav class="top-nav">
@@ -2858,6 +2911,25 @@
         </div>
     </footer>
 
+<script>
+  const scrollTopButton = document.getElementById('scrollTopButton');
+
+  window.addEventListener(
+    'scroll',
+    () => {
+      const shouldShowButton = window.scrollY > 400;
+      scrollTopButton.classList.toggle('is-visible', shouldShowButton);
+    },
+    { passive: true }
+  );
+
+  scrollTopButton.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+</script>
 </body>
 
 </html>
